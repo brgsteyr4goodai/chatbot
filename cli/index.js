@@ -1,6 +1,6 @@
 
+const fs = require("fs");
 const readline = require("readline");
-const { start } = require("repl");
 
 const Bot = require("../bot/index.js");
 const bot = new Bot();
@@ -9,6 +9,8 @@ const colors = require(`${__dirname}/colors.json`);
 const config = require(`${__dirname}/config.json`);
 let { style } = config;
 let run;
+
+const logo = fs.readFileSync(`${__dirname}/logo.txt`, "utf-8");
 
 for (const color in colors) {
     colors[color] = `\x1b[${colors[color]}m`;
@@ -72,6 +74,7 @@ const format = (string, ...color) => {
 
 const main = () => {
     run = true;
+    console.log(logo)
     loop("Hello");
 };
 
