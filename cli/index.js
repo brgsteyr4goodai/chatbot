@@ -22,8 +22,17 @@ const rl = readline.createInterface({
 const cmds = {
     info: {
         info: "Returns info of given command",
-        main: cmd => {
-            console.log(`\n${format(cmd, colors[style.botname])}\n${cmds[cmd].info}\n`);
+        main: ([ cmd ]) => {
+            if (cmd == undefined) {
+                for (const command in cmds) {
+                    cmds.info.main([ command ]);
+                }
+                return;
+            }
+            if (cmds[cmd] != undefined) {
+                return console.log(`${format(cmd, colors[style.botname])}\n${cmds[cmd].info}`);
+            }
+            console.log(`${format(`Can't find info for command ${cmd}`, colors[style.errtext])}`);
         }
     },
     new: {
@@ -39,7 +48,7 @@ const cmds = {
             process.exit();
         }
     }
-}
+};
 
 const loop = answer => {
     let [ cmd, ...args ] = answer.slice(config.prefix.length).split(" ");
@@ -50,7 +59,7 @@ const loop = answer => {
         cmds[cmd].main(args);
     }
     else {
-        console.log(`${format("Bot", colors[style.botname])}: ${format(`Command ${cmd} not found`, colors[style.errtext])}`);
+        console.log(`${format(`Command ${cmd} not found`, colors[style.errtext])}`);
     }
     if (run) {
         rl.question(`${format("You", colors[style.usrname])}: ${colors[style.usrtext]}`, loop);
@@ -64,6 +73,6 @@ const format = (string, ...color) => {
 const main = () => {
     run = true;
     loop("Hello");
-}
+};
 
 main();
