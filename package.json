@@ -1,0 +1,24 @@
+{
+  "name": "chatbot",
+  "version": "1.0.0",
+  "description": "4goodai chatbot",
+  "main": "index.js",
+  "scripts": {
+    "test": "node ./test/index.js",
+    "cli": "node ./cli/index.js",
+    "dc": "node ./dc/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brgsteyr4goodai/chatbot.git"
+  },
+  "keywords": [
+    "chatbot"
+  ],
+  "author": "Oliver Kovacs",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/brgsteyr4goodai/chatbot/issues"
+  },
+  "homepage": "https://github.com/brgsteyr4goodai/chatbot#readme"
+}
