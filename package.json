@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/brgsteyr4goodai/chatbot/issues"
   },
-  "homepage": "https://github.com/brgsteyr4goodai/chatbot#readme"
+  "homepage": "https://github.com/brgsteyr4goodai/chatbot#readme",
+  "dependencies": {
+    "discord.js": "^12.3.1"
+  }
 }
