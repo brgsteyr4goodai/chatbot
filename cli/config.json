@@ -1,0 +1,9 @@
+{
+    "prefix": "#",
+    "style": {
+        "botname": [ "fgGreen" ],
+        "usrname": [ "fgCyan" ],
+        "bottext": [ "fgWhite" ],
+        "usrtext": [ "fgWhite" ]
+    }
+}
