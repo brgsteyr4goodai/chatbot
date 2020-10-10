@@ -4,6 +4,7 @@
         "botname": [ "fgGreen" ],
         "usrname": [ "fgCyan" ],
         "bottext": [ "fgWhite" ],
-        "usrtext": [ "fgWhite" ]
+        "usrtext": [ "fgWhite" ],
+        "errtext": [ "fgRed" ]
     }
 }
