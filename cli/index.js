@@ -6,9 +6,7 @@ const Bot = require("../bot/index.js");
 const bot = new Bot();
 
 const colors = require(`${__dirname}/colors.json`);
-const config = require(`${__dirname}/config.json`);
-let { style } = config;
-let run;
+let config = require(`${__dirname}/config.json`);
 
 const logo = fs.readFileSync(`${__dirname}/logo.txt`, "utf-8");
 
@@ -22,6 +20,30 @@ const rl = readline.createInterface({
 });
 
 const cmds = {
+    config: {
+        info: "Changes given option to given value",
+        main: ([ option, value ]) => {
+            if (option === undefined) {
+                console.log(`${format("options", config.botname)}`);
+                for (const key in config) {
+                    console.log(key);
+                }
+                return;
+            }
+            if (config[option] === undefined) {
+                return console.log(`${format(`Invalid option ${option}`, config.errtext)}`);
+            }
+            if (value === undefined || value === "") {
+                return console.log(`${format(`No value given`, config.errtext)}`);
+            }
+            try {
+                value = JSON.parse(value);
+            }
+            catch(error) { }
+            config[option] = value;
+            fs.writeFileSync(`${__dirname}/config.json`, JSON.stringify(config, null, 2));
+        }
+    },
     info: {
         info: "Returns info of given command",
         main: ([ cmd ]) => {
@@ -32,15 +54,14 @@ const cmds = {
                 return;
             }
             if (cmds[cmd] != undefined) {
-                return console.log(`${format(cmd, colors[style.botname])}\n${cmds[cmd].info}`);
+                return console.log(`${format(cmd, config.botname)}\n${cmds[cmd].info}`);
             }
-            console.log(`${format(`Can't find info for command ${cmd}`, colors[style.errtext])}`);
+            console.log(`${format(`Can't find info for command ${cmd}`, config.errtext)}`);
         }
     },
     new: {
         info: "Restarts the bot",
         main: () => {
-            run = false;
             main();
         }
     },
@@ -55,26 +76,24 @@ const cmds = {
 const loop = answer => {
     let [ cmd, ...args ] = answer.slice(config.prefix.length).split(" ");
     if (answer.slice(0, config.prefix.length) != config.prefix) {
-        console.log(`${format("Bot", colors[style.botname])}: ${format(bot.message(answer), colors[style.bottext])}`);
+        console.log(`${format("Bot", config.botname)}: ${format(bot.message(answer), config.bottext)}`);
     }
     else if (cmds[cmd] != undefined) {
         cmds[cmd].main(args);
     }
     else {
-        console.log(`${format(`Command ${cmd} not found`, colors[style.errtext])}`);
+        console.log(`${format(`Command ${cmd} not found`, config.errtext)}`);
     }
-    if (run) {
-        rl.question(`${format("You", colors[style.usrname])}: ${colors[style.usrtext]}`, loop);
-    }
+    rl.question(`${format("You", config.usrname)}: ${colors[config.usrtext]}`, loop);
 };
 
-const format = (string, ...color) => {
-    return `${colors.reset}${color.join("")}${string}${colors.reset}`;
+const format = (string, color) => {
+    color = color.constructor.name === "Array" ? color : [ color ]; 
+    return `${colors.reset}${color.map(c => colors[c]).join("")}${string}${colors.reset}`;
 };
 
 const main = () => {
-    run = true;
-    console.log(logo)
+    console.log(format(logo, config.botname));
     loop("Hello");
 };
 

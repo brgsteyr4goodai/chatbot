@@ -1,10 +1,8 @@
 {
-    "prefix": "#",
-    "style": {
-        "botname": [ "fgGreen" ],
-        "usrname": [ "fgCyan" ],
-        "bottext": [ "fgWhite" ],
-        "usrtext": [ "fgWhite" ],
-        "errtext": [ "fgRed" ]
-    }
+  "prefix": "#",
+  "botname": "fgGreen",
+  "bottext": "reset",
+  "usrname": "fgCyan",
+  "usrtext": "reset",
+  "errtext": "fgRed"
 }
