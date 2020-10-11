@@ -1,5 +1,7 @@
 let botClass = require("../bot/index.js");
 const utils = require("./utils.js");
+const { MessageEmbed : Embed } = require("discord.js");
+const config = require("./config.json");
 
 module.exports = class {
     bind (msg, active) {
@@ -20,5 +22,32 @@ module.exports = class {
         }
 
         msg.channel.send("Unbound @"+msg.author.id);
+    }
+    help (msg, ac, cmd) {
+        if (cmd.length < 2) {
+            let help = new Embed()
+                .setTitle("Help")
+                .setDescription(`Use ${config.prefix}help <command> to get info on that command, use ${config.prefix}setup to get basic info on how to use the bot`)
+                .addField("Commands", Object.getOwnPropertyNames(Object.getPrototypeOf(this)).filter(e => e !== "constructor").join("\n"));
+
+            msg.channel.send(help);
+            return;
+        }
+
+        if (!(cmd[1] in this)) {
+            msg.channel.send("This command does not exist.");
+            return;
+        }
+
+        let commandInfo = new Embed()
+            .setTitle("Command <"+cmd[1]+">")
+            .setDescription(utils.getHelp(cmd[1]));
+        msg.channel.send(commandInfo);
+    }
+    info (msg) {
+
+    }
+    setup (msg) {
+
     }
 }

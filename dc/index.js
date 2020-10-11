@@ -20,10 +20,9 @@ bot.on("message", (msg) => {
     //commands
     if (msg.content.startsWith(config.prefix) && !msg.author.bot) {
         let io = msg.content.slice(config.prefix.length).split(" ");
-        console.log(io)
 
         if (io[0] in cmd) {
-            cmd[io[0]](msg, active);
+            cmd[io[0]](msg, active, io);
         }
 
         return;
