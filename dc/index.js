@@ -5,7 +5,7 @@ const { Client } = Discord;
 const config = require(`${__dirname}/config.json`);
 const token = fs.readFileSync(`${__dirname}/token.txt`, "utf-8");
 const cmd = new (require(`${__dirname}/cmds.js`))();
-const utils = require("./utils.js");
+const utils = require("./modules/utils.js");
 
 let bot = new Client();
 let active = {};

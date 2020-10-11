@@ -1,7 +1,7 @@
-let botClass = require("../bot/index.js");
+let botClass = require("../../bot");
 const utils = require("./utils.js");
 const { MessageEmbed : Embed } = require("discord.js");
-const config = require("./config.json");
+const config = require("../config.json");
 
 module.exports = class {
     bind (msg, active) {
@@ -18,6 +18,7 @@ module.exports = class {
 
         msg.channel.send(embed);
     }
+
     unbind (msg, active) {
         if (utils.chId(msg) in active) {
             if (active[utils.chId(msg)].author.id === msg.author.id) {
@@ -31,6 +32,7 @@ module.exports = class {
 
         msg.channel.send(embed);
     }
+
     help (msg, ac, cmd) {
         if (cmd.length < 2) {
             let help = new Embed()
@@ -52,6 +54,7 @@ module.exports = class {
             .setDescription(utils.getHelp(cmd[1]));
         msg.channel.send(commandInfo);
     }
+
     info (msg, ac, io, client) {
         let embed = new Embed()
             .setTitle("Chatbot 4goodai")
@@ -62,6 +65,7 @@ module.exports = class {
 
         msg.channel.send(embed);
     }
+
     setup (msg) {
         let prefix = config.prefix;
 
