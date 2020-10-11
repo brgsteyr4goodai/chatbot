@@ -22,7 +22,7 @@ bot.on("message", (msg) => {
         let io = msg.content.slice(config.prefix.length).split(" ");
 
         if (io[0] in cmd) {
-            cmd[io[0]](msg, active, io);
+            cmd[io[0]](msg, active, io, bot);
         }
 
         return;

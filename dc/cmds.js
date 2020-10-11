@@ -12,7 +12,11 @@ module.exports = class {
             pipe : function (msg) {return this.bot.message(msg)}
         }
 
-        msg.channel.send(`Bound @${msg.author.id} in ${msg.channel.id} - bind total ${Object.keys(active).length} (${utils.chId(msg)})`)
+        let embed = new Embed()
+            .setTitle("Now listening to messages in this channel ("+msg.channel.name+")")
+            .setFooter(msg.author.tag, msg.author.displayAvatarURL())
+
+        msg.channel.send(embed);
     }
     unbind (msg, active) {
         if (utils.chId(msg) in active) {
@@ -21,7 +25,11 @@ module.exports = class {
             }
         }
 
-        msg.channel.send("Unbound @"+msg.author.id);
+        let embed = new Embed()
+            .setTitle("Stopped listening to messages in this channel ("+msg.channel.name+")")
+            .setFooter(msg.author.tag, msg.author.displayAvatarURL())
+
+        msg.channel.send(embed);
     }
     help (msg, ac, cmd) {
         if (cmd.length < 2) {
@@ -44,10 +52,26 @@ module.exports = class {
             .setDescription(utils.getHelp(cmd[1]));
         msg.channel.send(commandInfo);
     }
-    info (msg) {
+    info (msg, ac, io, client) {
+        let embed = new Embed()
+            .setTitle("Chatbot 4goodai")
+            .setDescription("Developed for https://www.ada.wien/hackathon-fur-gute-ki-4goodai-2020/")
+            .addField("Contributors", ["Oliver Kovacs", "Ulrich Barnstedt", "Elias Leitinger", "Hanna Inselsbacher"].join("\n"))
+            .addField("Technologies used", ["[Discord.js](https://discord.js.org/#/)", "..."].join("\n"))
+            .setFooter(client.user.tag, client.user.displayAvatarURL())
 
+        msg.channel.send(embed);
     }
     setup (msg) {
+        let prefix = config.prefix;
 
+        let embed = new Embed()
+            .setTitle("Usage")
+            .setDescription(`The commands ${prefix}bind and ${prefix}unbind allow you to redirect the messages you send to the bot.
+            After using ${prefix}bind, all message from issuing user (in this channel) will be redirected to the bot.
+            ${prefix}unbind removes this message forwarding. 
+            `)
+
+        msg.channel.send(embed)
     }
 }
