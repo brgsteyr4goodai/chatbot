@@ -6,7 +6,7 @@ class Bot {
 
     }
 
-    message(msg, ts = Date.now()) {
+    async message(msg, ts = Date.now()) {
         return msg;                         // for testing
     }
 }
