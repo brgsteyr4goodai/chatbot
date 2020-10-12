@@ -4,7 +4,7 @@ const { Client } = Discord;
 
 const config = require(`${__dirname}/config.json`);
 const token = fs.readFileSync(`${__dirname}/token.txt`, "utf-8");
-const cmd = new (require(`${__dirname}/cmds.js`))();
+const cmd = new (require(`./modules/cmds.js`))();
 const utils = require("./modules/utils.js");
 
 let bot = new Client();
@@ -33,7 +33,7 @@ bot.on("message", (msg) => {
         if (msg.author.id !== active[utils.chId(msg)].author.id) return;
 
         let reply = active[utils.chId(msg)].pipe(msg.content);
-        msg.channel.send("Chatbot> "+reply);
+        msg.channel.send("Chatbot > "+reply);
     }
 })
 

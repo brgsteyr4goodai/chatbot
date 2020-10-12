@@ -1,5 +1,5 @@
-
 const config = require(`${__dirname}/config.json`);
+const DialogFlow = require("@google-cloud/dialogflow");
 
 class Bot {
     constructor(...args) {
