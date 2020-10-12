@@ -1,6 +1,8 @@
 const config = require(`${__dirname}/config.json`);
 const DialogFlow = require("@google-cloud/dialogflow");
 
+const Symptoma = require("./api/symptoma.js");
+
 class Bot {
     constructor(...args) {
 
