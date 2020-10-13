@@ -5,7 +5,7 @@ const querystring = require("querystring");
 class Symptoma {
 
     static options = {
-        hostname: "www.symptoma.at",
+        hostname: "www.symptoma.com",
         port: 443,
         path: "/",
         method: "GET",
@@ -14,10 +14,11 @@ class Symptoma {
         }
     };
     
-    static get(symptoms) {
+    static get(symptoms, lang = "en") {
         return new Promise((resolve, reject) => {
-            const path = `/de/spa/search/causes?${querystring.stringify({ query: symptoms })}`;
-            let req = https.request({ ...this.options, path }, res => {
+            const hostname = `www.symptoma.${lang !== "en" ? "at" : "com"}`;
+            const path = `/${lang}/spa/search/causes?${querystring.stringify({ query: symptoms })}`;
+            let req = https.request({ ...this.options, hostname, path }, res => {
                 let data = "";
 
                 res.on("data", chunck => {
