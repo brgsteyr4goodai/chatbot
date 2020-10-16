@@ -9,7 +9,6 @@ class Bot {
             keyFilename : `${__dirname}/credentials/public.json`
         });
         this.sessionId = uuid.v4();
-
         this.path = this.client.projectAgentSessionPath(config.projectID, this.sessionId)
     }
 
