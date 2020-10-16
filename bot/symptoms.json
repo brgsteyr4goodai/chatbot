@@ -1,0 +1,474 @@
+[
+    {
+        "value": "abdomen",
+        "synonyms": [
+            "abdomen",
+            "abdomen"
+        ],
+        "context": "My {} hurts"
+    },
+    {
+        "value": "back",
+        "synonyms": [
+            "back",
+            "back"
+        ],
+        "context": "My {} hurts"
+    },
+    {
+        "value": "chest",
+        "synonyms": [
+            "chest",
+            "chest"
+        ],
+        "context": "My {} hurts"
+    },
+    {
+        "value": "ear",
+        "synonyms": [
+            "ear",
+            "ear"
+        ],
+        "context": "My {} hurts"
+    },
+    {
+        "value": "head",
+        "synonyms": [
+            "head",
+            "head"
+        ],
+        "context": "My {} hurts"
+    },
+    {
+        "value": "pelvis",
+        "synonyms": [
+            "pelvis",
+            "pelvis"
+        ],
+        "context": "My {} hurts"
+    },
+    {
+        "value": "tooth",
+        "synonyms": [
+            "tooth",
+            "tooth"
+        ],
+        "context": "My {} hurts"
+    },
+    {
+        "value": "rectum",
+        "synonyms": [
+            "rectum",
+            "rectum"
+        ],
+        "context": "My {} hurts"
+    },
+    {
+        "value": "skin",
+        "synonyms": [
+            "skin",
+            "skin"
+        ],
+        "context": "My {} hurts"
+    },
+    {
+        "value": "Extremities",
+        "synonyms": [
+            "Extremities",
+            "extremities"
+        ],
+        "context": "My {} hurts"
+    },
+    {
+        "value": "leg",
+        "synonyms": [
+            "leg",
+            "leg"
+        ],
+        "context": "My {} hurts"
+    },
+    {
+        "value": "Chills",
+        "synonyms": [
+            "Chills",
+            "chills"
+        ],
+        "context": "I feel {}"
+    },
+    {
+        "value": "Fever",
+        "synonyms": [
+            "Fever",
+            "fever"
+        ],
+        "context": "I feel {}"
+    },
+    {
+        "value": "Paresthesia",
+        "synonyms": [
+            "Paresthesia",
+            "paresthesia"
+        ],
+        "context": "I feel {}"
+    },
+    {
+        "value": "numbness",
+        "synonyms": [
+            "numbness",
+            "numbness"
+        ],
+        "context": "I feel {}"
+    },
+    {
+        "value": "tingling",
+        "synonyms": [
+            "tingling",
+            "tingling"
+        ],
+        "context": "I feel {}"
+    },
+    {
+        "value": "electric tweaks",
+        "synonyms": [
+            "electric tweaks",
+            "electric tweaks"
+        ],
+        "context": "I feel {}"
+    },
+    {
+        "value": "Light-headed",
+        "synonyms": [
+            "Light-headed",
+            "light-headed"
+        ],
+        "context": "I feel {}"
+    },
+    {
+        "value": "Dizzy",
+        "synonyms": [
+            "Dizzy",
+            "dizzy"
+        ],
+        "context": "I feel {}"
+    },
+    {
+        "value": "Dizzy",
+        "synonyms": [
+            "Dizzy",
+            "dizzy"
+        ],
+        "context": "I feel {}"
+    },
+    {
+        "value": "My mouth is dry",
+        "synonyms": [
+            "My mouth is dry",
+            "my mouth is dry"
+        ],
+        "context": "I feel {}"
+    },
+    {
+        "value": "Nauseated",
+        "synonyms": [
+            "Nauseated",
+            "nauseated"
+        ],
+        "context": "I feel {}"
+    },
+    {
+        "value": "Sick",
+        "synonyms": [
+            "Sick",
+            "sick"
+        ],
+        "context": "I feel {}"
+    },
+    {
+        "value": "like I have the flu",
+        "synonyms": [
+            "like I have the flu",
+            "like i have the flu"
+        ],
+        "context": "I feel {}"
+    },
+    {
+        "value": "like I have to vomit",
+        "synonyms": [
+            "like I have to vomit",
+            "like i have to vomit"
+        ],
+        "context": "I feel {}"
+    },
+    {
+        "value": "Short of breath",
+        "synonyms": [
+            "Short of breath",
+            "short of breath"
+        ],
+        "context": "I feel {}"
+    },
+    {
+        "value": "Sleepy",
+        "synonyms": [
+            "Sleepy",
+            "sleepy"
+        ],
+        "context": "I feel {}"
+    },
+    {
+        "value": "Sweaty",
+        "synonyms": [
+            "Sweaty",
+            "sweaty"
+        ],
+        "context": "I feel {}"
+    },
+    {
+        "value": "Thirsty",
+        "synonyms": [
+            "Thirsty",
+            "thirsty"
+        ],
+        "context": "I feel {}"
+    },
+    {
+        "value": "Tired",
+        "synonyms": [
+            "Tired",
+            "tired"
+        ],
+        "context": "I feel {}"
+    },
+    {
+        "value": "Weak",
+        "synonyms": [
+            "Weak",
+            "weak"
+        ],
+        "context": "I feel {}"
+    },
+    {
+        "value": "the room spinning around me",
+        "synonyms": [
+            "the room spinning around me",
+            "the room spinning around me"
+        ],
+        "context": "I feel {}"
+    },
+    {
+        "value": "Breathe normally",
+        "synonyms": [
+            "Breathe normally",
+            "breathe normally"
+        ],
+        "context": "I can't {}"
+    },
+    {
+        "value": "Hear normally",
+        "synonyms": [
+            "Hear normally",
+            "hear normally"
+        ],
+        "context": "I can't {}"
+    },
+    {
+        "value": "Move one side – arm and/or leg",
+        "synonyms": [
+            "Move one side – arm and/or leg",
+            "move one side – arm and/or leg"
+        ],
+        "context": "I can't {}"
+    },
+    {
+        "value": "Pass a bowel action normally",
+        "synonyms": [
+            "Pass a bowel action normally",
+            "pass a bowel action normally"
+        ],
+        "context": "I can't {}"
+    },
+    {
+        "value": "Pass urine normally",
+        "synonyms": [
+            "Pass urine normally",
+            "pass urine normally"
+        ],
+        "context": "I can't {}"
+    },
+    {
+        "value": "Remember normally",
+        "synonyms": [
+            "Remember normally",
+            "remember normally"
+        ],
+        "context": "I can't {}"
+    },
+    {
+        "value": "See properly",
+        "synonyms": [
+            "See properly",
+            "see properly"
+        ],
+        "context": "I can't {}"
+    },
+    {
+        "value": "Sleep normally",
+        "synonyms": [
+            "Sleep normally",
+            "sleep normally"
+        ],
+        "context": "I can't {}"
+    },
+    {
+        "value": "Smell things normally",
+        "synonyms": [
+            "Smell things normally",
+            "smell things normally"
+        ],
+        "context": "I can't {}"
+    },
+    {
+        "value": "Speak normally",
+        "synonyms": [
+            "Speak normally",
+            "speak normally"
+        ],
+        "context": "I can't {}"
+    },
+    {
+        "value": "Stop passing watery bowel actions",
+        "synonyms": [
+            "Stop passing watery bowel actions",
+            "stop passing watery bowel actions"
+        ],
+        "context": "I can't {}"
+    },
+    {
+        "value": "Stop scratching",
+        "synonyms": [
+            "Stop scratching",
+            "stop scratching"
+        ],
+        "context": "I can't {}"
+    },
+    {
+        "value": "Stop sweating",
+        "synonyms": [
+            "Stop sweating",
+            "stop sweating"
+        ],
+        "context": "I can't {}"
+    },
+    {
+        "value": "Swallow normally",
+        "synonyms": [
+            "Swallow normally",
+            "swallow normally"
+        ],
+        "context": "I can't {}"
+    },
+    {
+        "value": "Taste properly",
+        "synonyms": [
+            "Taste properly",
+            "taste properly"
+        ],
+        "context": "I can't {}"
+    },
+    {
+        "value": "Walk normally",
+        "synonyms": [
+            "Walk normally",
+            "walk normally"
+        ],
+        "context": "I can't {}"
+    },
+    {
+        "value": "Write normally",
+        "synonyms": [
+            "Write normally",
+            "write normally"
+        ],
+        "context": "I can't {}"
+    },
+    {
+        "value": "ringing in my ears",
+        "synonyms": [
+            "ringing in my ears",
+            "ringing in my ears"
+        ],
+        "context": "I have {}"
+    },
+    {
+        "value": "hissing in my ears",
+        "synonyms": [
+            "hissing in my ears",
+            "hissing in my ears"
+        ],
+        "context": "I have {}"
+    },
+    {
+        "value": "Blindness",
+        "synonyms": [
+            "Blindness",
+            "blindness"
+        ],
+        "context": "I have {}"
+    },
+    {
+        "value": "blurred vision",
+        "synonyms": [
+            "blurred vision",
+            "blurred vision"
+        ],
+        "context": "I have {}"
+    },
+    {
+        "value": "double vision",
+        "synonyms": [
+            "double vision",
+            "double vision"
+        ],
+        "context": "I have {}"
+    },
+    {
+        "value": "leg pain",
+        "synonyms": [
+            "leg pain",
+            "leg pain"
+        ],
+        "context": "I have {}"
+    },
+    {
+        "value": "Chronic pain",
+        "synonyms": [
+            "Chronic pain",
+            "chronic pain"
+        ],
+        "context": "I have {}"
+    },
+    {
+        "value": "losing hearing",
+        "synonyms": [
+            "losing hearing",
+            "losing hearing"
+        ],
+        "context": "I am {}"
+    },
+    {
+        "value": "about to black out",
+        "synonyms": [
+            "about to black out",
+            "about to black out"
+        ],
+        "context": "I am {}"
+    },
+    {
+        "value": "sounds are too loud",
+        "synonyms": [
+            "sounds are too loud",
+            "sounds are too loud"
+        ],
+        "context": "{}"
+    }
+]
