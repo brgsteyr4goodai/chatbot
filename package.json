@@ -23,9 +23,7 @@
   "homepage": "https://github.com/brgsteyr4goodai/chatbot#readme",
   "dependencies": {
     "@google-cloud/dialogflow": "^3.3.0",
-    "discord.js": "^12.3.1"
-  },
-  "devDependencies": {
+    "discord.js": "^12.3.1",
     "uuid": "^8.3.1"
   }
 }
