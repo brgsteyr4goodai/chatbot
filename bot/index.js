@@ -1,7 +1,11 @@
-const config = require(`${__dirname}/config.json`);
 const DialogFlow = require("@google-cloud/dialogflow");
 
+const Match = require("./match.js");
 const Symptoma = require("./api/symptoma.js");
+const config = require("./config.json");
+const symptoms = require("./symptoms.json");
+
+const match = new Match(symptoms);
 
 class Bot {
     constructor(...args) {
@@ -9,7 +13,11 @@ class Bot {
     }
 
     async message(msg, ts = Date.now()) {
-        return msg;                         // for testing
+
+        // check for cmd
+
+        let symptoms = match.get(msg);
+        console.log(symptoms)
     }
 }
 
