@@ -19,6 +19,8 @@ class Bot {
 
     async message(msg, ts = Date.now()) {
 
+        if (!msg) msg = " ";
+
         // check for cmd
 
         let symptoms = match.get(msg);
