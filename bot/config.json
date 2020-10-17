@@ -1,4 +1,7 @@
 {
     "projectID" : "test-agent-xx99",
-    "languageCode" : "en-US"
+    "languageCode" : "en-US",
+    "useDF": true,
+    "usePM": true,
+    "maxCauses": 3
 }
