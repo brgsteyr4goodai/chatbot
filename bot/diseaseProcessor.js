@@ -1,7 +1,7 @@
-const Match = require("../match/match.js");
-const Symptoma = require("../api/symptoma.js");
-const config = require("../config.json");
-const symptoms = require("../match/symptoms.json");
+const Match = require("./pm/match.js");
+const Symptoma = require("./api/symptoma.js");
+const config = require("./config.json");
+const symptoms = require("./pm/symptoms.json");
 const match = new Match(symptoms);
 
 module.exports = class {
@@ -38,5 +38,9 @@ module.exports = class {
                 this.symptoms.push(symptom);
             }
         });
+    }
+
+    getInfo() {
+        
     }
 }

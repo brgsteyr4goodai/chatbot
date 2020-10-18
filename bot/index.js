@@ -4,11 +4,10 @@ const DialogFlow = require("@google-cloud/dialogflow");
 const uuid = require('uuid');
 const config = require("./config.json");
 
-const symptomProcessor = require("./dialogflow/symptomProcessor.js");
-const diseaseInfo = require("./dialogflow/diseaseInfo.js")
+const DiseaseProcessor = require("./diseaseProcessor.js");
 
 class Bot {
-    constructor(...args) {
+    constructor() {
         this.client = new DialogFlow.SessionsClient({
             keyFilename : `${__dirname}/dialogflow/dialogflow_credentials/public.json`
         });
@@ -51,8 +50,7 @@ class Bot {
     instance () {
         //create necessary instance of other match here
 
-        this.symptomProcessor = new symptomProcessor();
-        this.diseaseGetter = new diseaseInfo();
+        this.diseaseProcessor = new DiseaseProcessor();
     }
 
     //---------------------------- intent_classes
@@ -65,10 +63,9 @@ class Bot {
         switch (mode) {
             case "default":
             case "appendSymptom":
-                await this.symptomProcessor.message(data.text, data.response)
+                await this.diseaseProcessor.message(data.text, data.response);
                 break;
             case "select_number":
-                this.diseaseGetter.getInfo(data.text, data.response.parameters.fields.number.listValue.values)
                 break;
         }
     }
