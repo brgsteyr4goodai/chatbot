@@ -5,9 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "node ./test/index.js",
-    "cli": "node ./cli/index.js",
-    "dc": "node ./dc/index.js",
-    "train" : "node ./bot/training/train.js"
+    "cli": "cls && node ./cli/index.js",
+    "dc": "node ./dc/index.js"
   },
   "repository": {
     "type": "git",

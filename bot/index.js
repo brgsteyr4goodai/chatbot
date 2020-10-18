@@ -1,37 +1,29 @@
+require("./doc/type.js")
+
 const DialogFlow = require("@google-cloud/dialogflow");
-
-const Match = require("./match.js");
 const uuid = require('uuid');
-const Symptoma = require("./api/symptoma.js");
 const config = require("./config.json");
-const symptoms = require("./symptoms.json");
 
-const match = new Match(symptoms);
+const symptomProcessor = require("./dialogflow/symptomProcessor.js");
 
 class Bot {
     constructor(...args) {
         this.client = new DialogFlow.SessionsClient({
-            keyFilename : `${__dirname}/credentials/public.json`
+            keyFilename : `./dialogflow/dialogflow_credentials/public.json`
         });
         this.sessionId = uuid.v4();
         this.path = this.client.projectAgentSessionPath(config.projectID, this.sessionId);
 
-        this.start();
+        this.instance();
     }
 
-    start() {
-        this.symptoms = [];
-        this.causes = [];
-    }
+    //---------------------------- main
 
-    async message(msg, ts = Date.now()) {
-
+    /**
+     * @param msg {String}
+     */
+    async message(msg) {
         if (!msg || typeof msg !== "string") msg = " ";
-
-        // check for cmd
-
-        let pmSymptoms = match.get(msg);
-        let dfSymptoms = [];
 
         let query = {
             session : this.path,
@@ -45,34 +37,30 @@ class Bot {
 
         let response = await this.client.detectIntent(query);
         response = response[0].queryResult;
-
         let reply = response.fulfillmentText;
-        try {
-            if (response.parameters.fields.Symptoms.listValue.values.length > 0) {
-                dfSymptoms = response.parameters.fields.Symptoms.listValue.values.map(v => v.stringValue);
-            }
-        } catch (error) {}
 
-        if (config.useDF) this.addSymptoms(dfSymptoms);
-        if (config.usePM) this.addSymptoms(pmSymptoms);
-
-        console.log("df:", dfSymptoms, "  pm:", pmSymptoms, "  symptoms:", this.symptoms);
-
-        if (this.symptoms) {
-            this.causes = (await Symptoma.get(this.symptoms, config.languageCode.slice(0, 2))).slice(0, config.maxCauses).map(({ name }) => name);
+        if (response.intent.displayName in this) {
+            await this[response.intent.displayName]({response, query, text : msg});
         }
-        
-        console.log("causes:", this.causes);
 
         return reply;
     }
 
-    addSymptoms(symptoms) {
-        symptoms.forEach(symptom => {
-            if (this.symptoms.indexOf(symptom) === -1) {
-                this.symptoms.push(symptom);
-            }
-        });
+    instance () {
+        //create necessary instance of other match here
+
+        this.symptomProcessor = new symptomProcessor();
+    }
+
+    //---------------------------- intent_classes
+
+    /**
+     * @param data {interIO}
+     */
+    async symptom_io (data) {
+        if (data.response.parameters.fields.Symptoms.listValue.values.length > 0) {
+            await this.symptomProcessor.message(data.text, data.response)
+        }
     }
 }
 

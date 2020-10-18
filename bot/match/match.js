@@ -1,4 +1,3 @@
-
 class Match {
     
     constructor(patterns) {
