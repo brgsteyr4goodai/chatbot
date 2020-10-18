@@ -73,6 +73,15 @@ class Bot {
             this.diseaseGetter.getInfo(data.text, data.response.parameters.fields.number.listValue.values)
         }
     }
+
+    /**
+     * @param data {interIO}
+     */
+    async symptom_io_appendSymptom (data) {
+        if (data.response.parameters.fields.Symptoms.listValue.values.length > 0) {
+            await this.symptomProcessor.appendSymptoms(data.text, data.response)
+        }
+    }
 }
 
 module.exports = Bot;
