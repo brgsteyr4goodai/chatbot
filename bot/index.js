@@ -5,11 +5,12 @@ const uuid = require('uuid');
 const config = require("./config.json");
 
 const symptomProcessor = require("./dialogflow/symptomProcessor.js");
+const diseaseInfo = require("./dialogflow/diseaseInfo.js")
 
 class Bot {
     constructor(...args) {
         this.client = new DialogFlow.SessionsClient({
-            keyFilename : `./dialogflow/dialogflow_credentials/public.json`
+            keyFilename : `${__dirname}/dialogflow/dialogflow_credentials/public.json`
         });
         this.sessionId = uuid.v4();
         this.path = this.client.projectAgentSessionPath(config.projectID, this.sessionId);
@@ -50,6 +51,7 @@ class Bot {
         //create necessary instance of other match here
 
         this.symptomProcessor = new symptomProcessor();
+        this.diseaseGetter = new diseaseInfo();
     }
 
     //---------------------------- intent_classes
@@ -60,6 +62,15 @@ class Bot {
     async symptom_io (data) {
         if (data.response.parameters.fields.Symptoms.listValue.values.length > 0) {
             await this.symptomProcessor.message(data.text, data.response)
+        }
+    }
+
+    /**
+     * @param data {interIO}
+     */
+    async symptom_io_select_number (data) {
+        if (data.response.parameters.fields.number.listValue.values.length > 0) {
+            this.diseaseGetter.getInfo(data.text, data.response.parameters.fields.number.listValue.values)
         }
     }
 }
