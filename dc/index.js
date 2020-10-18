@@ -16,7 +16,7 @@ bot.on("ready", async () => {
     console.log("config: ", config);
 });
 
-bot.on("message", (msg) => {
+bot.on("message", async (msg) => {
     //commands
     if (msg.content.startsWith(config.prefix) && !msg.author.bot) {
         let io = msg.content.slice(config.prefix.length).split(" ");
@@ -32,7 +32,7 @@ bot.on("message", (msg) => {
     if (utils.chId(msg) in active) {
         if (msg.author.id !== active[utils.chId(msg)].author.id) return;
 
-        let reply = active[utils.chId(msg)].pipe(msg.content);
+        let reply = await active[utils.chId(msg)].pipe(msg.content);
         msg.channel.send("Chatbot > "+reply);
     }
 })
