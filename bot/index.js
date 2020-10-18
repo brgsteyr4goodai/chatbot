@@ -9,7 +9,7 @@ const DiseaseProcessor = require("./diseaseProcessor.js");
 class Bot {
     constructor() {
         this.client = new DialogFlow.SessionsClient({
-            keyFilename : `${__dirname}/dialogflow/dialogflow_credentials/public.json`
+            keyFilename : `${__dirname}/dialogflow_credentials/public.json`
         });
         this.sessionId = uuid.v4();
         this.path = this.client.projectAgentSessionPath(config.projectID, this.sessionId);
