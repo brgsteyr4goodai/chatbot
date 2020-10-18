@@ -65,14 +65,10 @@ class Bot {
         switch (mode) {
             case "default":
             case "appendSymptom":
-                if (data.response.parameters.fields.Symptoms.listValue.values.length > 0) {
-                    await this.symptomProcessor.message(data.text, data.response)
-                }
+                await this.symptomProcessor.message(data.text, data.response)
                 break;
             case "select_number":
-                if (data.response.parameters.fields.number.listValue.values.length > 0) {
-                    this.diseaseGetter.getInfo(data.text, data.response.parameters.fields.number.listValue.values)
-                }
+                this.diseaseGetter.getInfo(data.text, data.response.parameters.fields.number.listValue.values)
                 break;
         }
     }

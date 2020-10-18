@@ -11,6 +11,8 @@ module.exports = class {
     }
 
     async message (msg, response) {
+        if (response.parameters.fields.Symptoms.listValue.values.length === 0) return;
+
         let pmSymptoms = match.get(msg);
         let dfSymptoms = [];
 
