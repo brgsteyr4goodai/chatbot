@@ -40,8 +40,9 @@ class Bot {
         response = response[0].queryResult;
         let reply = response.fulfillmentText;
 
-        if (response.intent.displayName in this) {
-            await this[response.intent.displayName]({response, query, text : msg});
+        let parsed = response.intent.displayName.split(":");
+        if (parsed[0] in this) {
+            await this[parsed[0]](parsed[1], {response, query, text : msg})
         }
 
         return reply;
@@ -57,29 +58,22 @@ class Bot {
     //---------------------------- intent_classes
 
     /**
-     * @param data {interIO}
+     * @param {string} mode
+     * @param {interIO} data
      */
-    async symptom_io (data) {
-        if (data.response.parameters.fields.Symptoms.listValue.values.length > 0) {
-            await this.symptomProcessor.message(data.text, data.response)
-        }
-    }
-
-    /**
-     * @param data {interIO}
-     */
-    async symptom_io_select_number (data) {
-        if (data.response.parameters.fields.number.listValue.values.length > 0) {
-            this.diseaseGetter.getInfo(data.text, data.response.parameters.fields.number.listValue.values)
-        }
-    }
-
-    /**
-     * @param data {interIO}
-     */
-    async symptom_io_appendSymptom (data) {
-        if (data.response.parameters.fields.Symptoms.listValue.values.length > 0) {
-            await this.symptomProcessor.appendSymptoms(data.text, data.response)
+    async symptom_io (mode, data) {
+        switch (mode) {
+            case "default":
+            case "appendSymptom":
+                if (data.response.parameters.fields.Symptoms.listValue.values.length > 0) {
+                    await this.symptomProcessor.message(data.text, data.response)
+                }
+                break;
+            case "select_number":
+                if (data.response.parameters.fields.number.listValue.values.length > 0) {
+                    this.diseaseGetter.getInfo(data.text, data.response.parameters.fields.number.listValue.values)
+                }
+                break;
         }
     }
 }

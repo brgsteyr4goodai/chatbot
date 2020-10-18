@@ -37,8 +37,4 @@ module.exports = class {
             }
         });
     }
-
-    appendSymptoms (msg, response) {
-        //add new ones here
-    }
 }
