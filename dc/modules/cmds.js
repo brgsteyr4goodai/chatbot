@@ -9,7 +9,7 @@ module.exports = class {
             origin : msg,
             author : msg.author,
             bot : new botClass(),
-            pipe : function (msg) {return this.bot.message(msg)}
+            pipe : async function (msg) {return await this.bot.message(msg)}
         }
 
         let embed = new Embed()
