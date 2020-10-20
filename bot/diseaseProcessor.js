@@ -46,7 +46,7 @@ module.exports = class {
         let index = response.queryResult.parameters.fields.number.listValue.values[0].numberValue;
 
 
-        output.addOutput(${this.causes[index-1].name})
+        output.addOutput(this.causes[index-1].name)
     }
 
     logSymptomsAndCauses (output) {

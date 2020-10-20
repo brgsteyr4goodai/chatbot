@@ -39,7 +39,7 @@ module.exports = class {
     convert () {
         return {
             df : this.df,
-            output : this.output,
+            out : this.out,
             debug : this.debug
         }
     }
