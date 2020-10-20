@@ -11,7 +11,7 @@ let bot = new Client();
 let active = {};
 
 bot.on("ready", async () => {
-    bot.user.setActivity("Just Chatting", { type: "PLAYING" });
+    await bot.user.setActivity("Just Chatting", {type: "PLAYING"});
     console.log("Bot is online");
     console.log("config: ", config);
 });
@@ -36,8 +36,23 @@ bot.on("message", async (msg) => {
 
         //future code
         //reply.forEach(r => msg.channel.send("Chatbot > "+r));
+        //msg.channel.send("Chatbot > "+reply);
 
-        msg.channel.send("Chatbot > "+reply);
+        if (config.debug) {
+            reply.debug.forEach(d => msg.channel.send("[Debug] " + d));
+        }
+
+        let embed = new Discord.MessageEmbed().setColor("#03fcec")
+        if (reply.out.length > 0) {
+            embed.setDescription(reply.out.join("\n"))
+        }
+
+        if (reply.df.length > 0) {
+            embed.addField("Reply", reply.df.join("\n"));
+        }
+
+
+        msg.channel.send(embed)
     }
 })
 

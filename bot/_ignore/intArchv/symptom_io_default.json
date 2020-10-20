@@ -1,0 +1,98 @@
+{
+  "id": "dcd7beef-e8c1-4db7-9dcf-5028d9ca005f",
+  "name": "symptom_io:default",
+  "auto": true,
+  "condition": "",
+  "conditionalFollowupEvents": [],
+  "conditionalResponses": [],
+  "context": [
+    "sy_true"
+  ],
+  "contexts": [
+    "sy_true"
+  ],
+  "endInteraction": false,
+  "events": [],
+  "fallbackIntent": false,
+  "liveAgentHandoff": false,
+  "parentId": null,
+  "followUpIntents": [],
+  "priority": 500000,
+  "responses": [
+    {
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "symptom_io-followup",
+          "lifespan": 2
+        },
+        {
+          "name": "symptom_io-followup-2",
+          "lifespan": 2
+        },
+        {
+          "name": "symptom_iodefault-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [
+        {
+          "noInputPromptMessages": [],
+          "noMatchPromptMessages": [],
+          "promptMessages": [],
+          "defaultValue": "",
+          "name": "Symptoms",
+          "dataType": "@Symptom",
+          "isList": true,
+          "required": true,
+          "prompts": [
+            "What symptoms do you have?"
+          ],
+          "value": "$Symptoms",
+          "outputDialogContexts": []
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "messages": [
+        {
+          "type": "message",
+          "condition": "",
+          "speech": [
+            "Would you like to enter further symptoms?"
+          ]
+        }
+      ],
+      "resetContexts": false
+    }
+  ],
+  "rootParentId": null,
+  "templates": [],
+  "userSays": [
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "i feel sick",
+          "userDefined": false
+        }
+      ],
+      "count": 2,
+      "id": "326617bd-f60c-4048-a94f-bd199146f0f3",
+      "updated": null
+    },
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "I feel sick.",
+          "userDefined": false
+        }
+      ],
+      "count": 0,
+      "id": "92b62eed-8db9-41ca-82dd-bec64017d0d6",
+      "updated": null
+    }
+  ],
+  "webhookForSlotFilling": false,
+  "webhookUsed": false
+}

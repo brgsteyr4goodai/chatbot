@@ -30,7 +30,9 @@ class Bot {
         //query dialogflow
         let query = this.createQuery(text);
         let [ response ] = await this.client.detectIntent(query);
-        output.addDf(response.queryResult.fulfillmentText);
+        if (response.queryResult.fulfillmentText !== undefined && response.queryResult.fulfillmentText !== "" && response.queryResult.fulfillmentText !== " ") {
+            output.addDf(response.queryResult.fulfillmentText);
+        }
 
         //pass intent to local function
         let parsed = response.queryResult.intent.displayName.split(":");
