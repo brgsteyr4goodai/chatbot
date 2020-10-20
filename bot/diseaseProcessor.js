@@ -11,14 +11,14 @@ module.exports = class {
     }
 
     async message (msg, response) {
-        if (response.parameters.fields.Symptoms.listValue.values.length === 0) return;
+        //if (response.parameters.fields.Symptoms.listValue.values.length === 0) return;
 
         let pmSymptoms = match.get(msg);
         let dfSymptoms = [];
 
-        if (response.parameters.fields.Symptoms.listValue.values.length > 0) {
-            dfSymptoms = response.parameters.fields.Symptoms.listValue.values.map(v => v.stringValue);
-        }
+        //if (response.parameters.fields.Symptoms.listValue.values.length > 0) {
+        //    dfSymptoms = response.parameters.fields.Symptoms.listValue.values.map(v => v.stringValue);
+        //}
 
         if (config.useDF) this.addSymptoms(dfSymptoms);
         if (config.usePM) this.addSymptoms(pmSymptoms);
@@ -26,10 +26,10 @@ module.exports = class {
         console.log("df:", dfSymptoms, "  pm:", pmSymptoms, "  symptoms:", this.symptoms);
 
         if (this.symptoms) {
-            this.causes = (await Symptoma.get(this.symptoms, config.languageCode.slice(0, 2))).slice(0, config.maxCauses).map(({ name }) => name);
+            await this.getDisease();
         }
 
-        console.log("causes:", this.causes);
+        console.log("causes:", this.causes.map(({ name }) => name));
     }
 
     addSymptoms(symptoms) {
@@ -40,7 +40,11 @@ module.exports = class {
         });
     }
 
-    getInfo() {
-        
+    async getDisease() {
+        this.causes = (await Symptoma.get(this.symptoms, config.languageCode.slice(0, 2))).slice(0, config.maxCauses);
+    }
+
+    getInfo(index) {
+        conosle.log(this.causes[index].name);
     }
 }

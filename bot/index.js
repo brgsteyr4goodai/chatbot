@@ -20,29 +20,29 @@ class Bot {
     //---------------------------- main
 
     /**
-     * @param msg {String}
+     * @param text {String}
      */
-    async message(msg) {
-        if (!msg || typeof msg !== "string") msg = " ";
+    async message(text) {
+        if (!text || typeof text !== "string") text = " ";
 
-        let query = {
-            session : this.path,
-            queryInput : {
-                text : {
-                    text : msg,
-                    languageCode: config.languageCode
-                }
-            }
-        };
+        let intent, pmIntent, dfIntent;
+        let query = this.createQuery(text);
 
-        let response = await this.client.detectIntent(query);
-        response = response[0].queryResult;
-        let reply = response.fulfillmentText;
+        let [ response ] = await this.client.detectIntent(query);
+        let reply = response.queryResult.fulfillmentText;
 
+        /* bypass for debugging
         let parsed = response.intent.displayName.split(":");
         if (parsed[0] in this) {
             await this[parsed[0]](parsed[1], {response, query, text : msg})
         }
+        dfIntent = parsed;      // inten parsed by dialogflow
+        */
+        pmIntent = "appendSymptom";
+
+        intent = dfIntent ? dfIntent : pmIntent;
+
+        await this.symptom_io(intent, { response, query, text });
 
         return reply;
     }
@@ -61,6 +61,7 @@ class Bot {
      */
     async symptom_io (mode, data) {
         switch (mode) {
+            default: 
             case "default":
             case "appendSymptom":
                 await this.diseaseProcessor.message(data.text, data.response);
@@ -68,6 +69,18 @@ class Bot {
             case "select_number":
                 break;
         }
+    }
+
+    createQuery(text) {
+        return {
+            session : this.path,
+            queryInput : {
+                text : {
+                    text,
+                    languageCode: config.languageCode
+                }
+            }
+        };
     }
 }
 
