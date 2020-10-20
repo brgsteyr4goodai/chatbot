@@ -45,7 +45,7 @@ module.exports = class {
         if (response.queryResult.parameters.fields.number === undefined) return;
         let index = response.queryResult.parameters.fields.number.listValue.values[0].numberValue;
 
-        console.log(colors.FgMagenta, "[User i/o]", colors.default, " ",this.causes[index].name);
+        console.log(colors.FgMagenta, "[User i/o]", colors.default, " ",this.causes[index-1].name);
     }
 
     logSymptomsAndCauses () {

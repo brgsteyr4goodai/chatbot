@@ -3,5 +3,6 @@
     "languageCode" : "en-US",
     "useDF": true,
     "usePM": true,
-    "maxCauses": 3
+    "maxCauses": 3,
+    "debug" : true
 }
