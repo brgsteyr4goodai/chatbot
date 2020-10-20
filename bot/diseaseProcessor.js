@@ -41,16 +41,17 @@ module.exports = class {
 
     //------------------------ output
 
-    getInfo(response) {
+    getInfo(output, response) {
         if (response.queryResult.parameters.fields.number === undefined) return;
         let index = response.queryResult.parameters.fields.number.listValue.values[0].numberValue;
 
-        console.log(colors.FgMagenta, "[User i/o]", colors.default, " ",this.causes[index-1].name);
+
+        output.addOutput(${this.causes[index-1].name})
     }
 
-    logSymptomsAndCauses () {
-        console.log(colors.FgMagenta, "[User i/o]", colors.default, " Running a diagnose.")
-        console.log(colors.FgRed ,"[Debug]", colors.default ," Symptoms: ", this.symptoms);
-        console.log(colors.FgMagenta, "[User i/o]", colors.default, " Causes:", this.causes.map(({ name }) => name));
+    logSymptomsAndCauses (output) {
+        output.addOutput("Running a diagnose...");
+        output.addDebug("Symptoms: "+JSON.stringify(symptoms));
+        output.addOutput("Possible causes: "+this.causes.map(({n}) => n).join(", "));
     }
 }

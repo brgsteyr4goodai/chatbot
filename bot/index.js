@@ -5,6 +5,7 @@ const uuid = require('uuid');
 const config = require("./config.json");
 
 const DiseaseProcessor = require("./diseaseProcessor.js");
+const Output = require("./output.js");
 
 class Bot {
     constructor() {
@@ -24,19 +25,20 @@ class Bot {
      */
     async message(text) {
         if (!text || typeof text !== "string") text = " ";
+        let output = new Output();
 
         //query dialogflow
         let query = this.createQuery(text);
         let [ response ] = await this.client.detectIntent(query);
-        let reply = response.queryResult.fulfillmentText;
+        output.addDf(response.queryResult.fulfillmentText);
 
         //pass intent to local function
         let parsed = response.queryResult.intent.displayName.split(":");
         if (parsed[0] in this) {
-            let additionalStrings = await this[parsed[0]](parsed[1], {response, query, text: text})
+            let additionalStrings = await this[parsed[0]](parsed[1], {response, query, text: text, output})
         }
 
-        return reply;
+        return output;
     }
 
     instance () {
@@ -75,10 +77,10 @@ class Bot {
                 break;
             case "diagnose":
                 await this.diseaseProcessor.getDisease();
-                await this.diseaseProcessor.logSymptomsAndCauses();
+                await this.diseaseProcessor.logSymptomsAndCauses(data.output);
                 break;
             case "postDiagnoseNum":
-                await this.diseaseProcessor.getInfo(data.response);
+                await this.diseaseProcessor.getInfo(data.output, data.response);
                 break;
         }
     }

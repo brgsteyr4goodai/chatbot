@@ -14,4 +14,5 @@
  * @property {google.cloud.dialogflow.v2.IDetectIntentResponse} response
  * @property {queryObject} query
  * @property {String} text
+ * @property {Output} output
  */

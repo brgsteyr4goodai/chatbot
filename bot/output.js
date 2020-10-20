@@ -1,5 +1,8 @@
 const config = require("./config.json");
 
+/**
+ * @typedef {Class} Output
+ */
 module.exports = class {
     constructor() {
         this.out = [];
