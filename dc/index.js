@@ -33,6 +33,10 @@ bot.on("message", async (msg) => {
         if (msg.author.id !== active[utils.chId(msg)].author.id) return;
 
         let reply = await active[utils.chId(msg)].pipe(msg.content);
+
+        //future code
+        //reply.forEach(r => msg.channel.send("Chatbot > "+r));
+
         msg.channel.send("Chatbot > "+reply);
     }
 })

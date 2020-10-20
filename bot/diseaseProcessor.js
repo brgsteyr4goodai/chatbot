@@ -4,6 +4,9 @@ const config = require("./config.json");
 const symptoms = require("./pm/symptoms.json");
 const match = new Match(symptoms);
 
+//output until cli gets color methods
+const colors = require("./colors.js");
+
 module.exports = class {
     constructor() {
         this.symptoms = [];
@@ -11,25 +14,17 @@ module.exports = class {
     }
 
     async message (msg, response) {
-        //if (response.parameters.fields.Symptoms.listValue.values.length === 0) return;
-
         let pmSymptoms = match.get(msg);
-        let dfSymptoms = [];
 
-        //if (response.parameters.fields.Symptoms.listValue.values.length > 0) {
-        //    dfSymptoms = response.parameters.fields.Symptoms.listValue.values.map(v => v.stringValue);
-        //}
+        let dfSymptoms = [];
+        if (response.queryResult.parameters.fields.Symptoms !== undefined) {
+            if (response.queryResult.parameters.fields.Symptoms.listValue.values.length > 0) {
+                dfSymptoms = response.queryResult.parameters.fields.Symptoms.listValue.values.map(v => v.stringValue);
+            }
+        }
 
         if (config.useDF) this.addSymptoms(dfSymptoms);
         if (config.usePM) this.addSymptoms(pmSymptoms);
-
-        console.log("df:", dfSymptoms, "  pm:", pmSymptoms, "  symptoms:", this.symptoms);
-
-        if (this.symptoms) {
-            await this.getDisease();
-        }
-
-        console.log("causes:", this.causes.map(({ name }) => name));
     }
 
     addSymptoms(symptoms) {
@@ -44,7 +39,18 @@ module.exports = class {
         this.causes = (await Symptoma.get(this.symptoms, config.languageCode.slice(0, 2))).slice(0, config.maxCauses);
     }
 
-    getInfo(index) {
-        conosle.log(this.causes[index].name);
+    //------------------------ output
+
+    getInfo(response) {
+        if (response.queryResult.parameters.fields.number === undefined) return;
+        let index = response.queryResult.parameters.fields.number.listValue.values[0].numberValue;
+
+        console.log(colors.FgMagenta, "[User i/o]", colors.default, " ",this.causes[index].name);
+    }
+
+    logSymptomsAndCauses () {
+        console.log(colors.FgMagenta, "[User i/o]", colors.default, " Running a diagnose.")
+        console.log(colors.FgRed ,"[Debug]", colors.default ," Symptoms: ", this.symptoms);
+        console.log(colors.FgMagenta, "[User i/o]", colors.default, " Causes:", this.causes.map(({ name }) => name));
     }
 }

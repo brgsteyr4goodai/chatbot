@@ -25,24 +25,16 @@ class Bot {
     async message(text) {
         if (!text || typeof text !== "string") text = " ";
 
-        let intent, pmIntent, dfIntent;
+        //query dialogflow
         let query = this.createQuery(text);
-
         let [ response ] = await this.client.detectIntent(query);
         let reply = response.queryResult.fulfillmentText;
 
-        /* bypass for debugging
-        let parsed = response.intent.displayName.split(":");
+        //pass intent to local function
+        let parsed = response.queryResult.intent.displayName.split(":");
         if (parsed[0] in this) {
-            await this[parsed[0]](parsed[1], {response, query, text : msg})
+            let additionalStrings = await this[parsed[0]](parsed[1], {response, query, text: text})
         }
-        dfIntent = parsed;      // inten parsed by dialogflow
-        */
-        pmIntent = "appendSymptom";
-
-        intent = dfIntent ? dfIntent : pmIntent;
-
-        await this.symptom_io(intent, { response, query, text });
 
         return reply;
     }
@@ -53,34 +45,42 @@ class Bot {
         this.diseaseProcessor = new DiseaseProcessor();
     }
 
+    /**
+     * @param {string} text
+     * @returns {queryObject}
+     */
+    createQuery(text) {
+        return {
+            session: this.path,
+            queryInput: {
+                text: {
+                    text,
+                    languageCode: config.languageCode
+                }
+            }
+        };
+    }
+
     //---------------------------- intent_classes
 
     /**
      * @param {string} mode
      * @param {interIO} data
      */
-    async symptom_io (mode, data) {
+    async symptom2 (mode, data) {
         switch (mode) {
-            default: 
-            case "default":
-            case "appendSymptom":
+            case "init":
+            case "add":
                 await this.diseaseProcessor.message(data.text, data.response);
                 break;
-            case "select_number":
+            case "diagnose":
+                await this.diseaseProcessor.getDisease();
+                await this.diseaseProcessor.logSymptomsAndCauses();
+                break;
+            case "postDiagnoseNum":
+                await this.diseaseProcessor.getInfo(data.response);
                 break;
         }
-    }
-
-    createQuery(text) {
-        return {
-            session : this.path,
-            queryInput : {
-                text : {
-                    text,
-                    languageCode: config.languageCode
-                }
-            }
-        };
     }
 }
 

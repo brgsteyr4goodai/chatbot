@@ -11,7 +11,7 @@
 
 /**
  * @typedef {Object} interIO
- * @property {google.cloud.dialogflow.v2.IQueryResult} response
+ * @property {google.cloud.dialogflow.v2.IDetectIntentResponse} response
  * @property {queryObject} query
  * @property {String} text
  */

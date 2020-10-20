@@ -1,0 +1,763 @@
+{
+  "id": "b9d4570a-c144-4276-919b-c38c8bd2b25e",
+  "name": "symptom2:add",
+  "auto": true,
+  "condition": "",
+  "conditionalFollowupEvents": [],
+  "conditionalResponses": [],
+  "context": [
+    "sy2_add"
+  ],
+  "contexts": [
+    "sy2_add"
+  ],
+  "endInteraction": false,
+  "events": [],
+  "fallbackIntent": false,
+  "liveAgentHandoff": false,
+  "parentId": null,
+  "followUpIntents": [],
+  "priority": 500000,
+  "responses": [
+    {
+      "action": "",
+      "affectedContexts": [],
+      "parameters": [
+        {
+          "noInputPromptMessages": [],
+          "noMatchPromptMessages": [],
+          "promptMessages": [],
+          "defaultValue": "",
+          "name": "Symptom",
+          "dataType": "@Symptom",
+          "isList": false,
+          "required": false,
+          "prompts": [],
+          "value": "$Symptom",
+          "outputDialogContexts": []
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "messages": [
+        {
+          "type": "message",
+          "condition": "",
+          "speech": []
+        }
+      ],
+      "resetContexts": false
+    }
+  ],
+  "rootParentId": null,
+  "templates": [],
+  "userSays": [
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "My ",
+          "userDefined": false
+        },
+        {
+          "text": "abdomen",
+          "userDefined": true,
+          "alias": "Symptom",
+          "meta": "@Symptom"
+        },
+        {
+          "text": " hurts",
+          "userDefined": false
+        }
+      ],
+      "count": 0,
+      "id": "177da12d-c13a-48ad-985b-46e346566b3d",
+      "updated": null
+    },
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "My back hurts",
+          "userDefined": false
+        }
+      ],
+      "count": 0,
+      "id": "b3229f7a-25ea-4aa6-8cce-ac1da1d69aa0",
+      "updated": null
+    },
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "My chest hurts",
+          "userDefined": false
+        }
+      ],
+      "count": 0,
+      "id": "28d9fddc-31d6-4245-b707-a22959bd18d0",
+      "updated": null
+    },
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "My ear hurts",
+          "userDefined": false
+        }
+      ],
+      "count": 0,
+      "id": "f88f7c35-c6f5-4477-9063-f10def993822",
+      "updated": null
+    },
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "My head hurts",
+          "userDefined": false
+        }
+      ],
+      "count": 0,
+      "id": "367ad2ee-fa18-4a0f-a8a3-88a4b06c8602",
+      "updated": null
+    },
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "My pelvis hurts",
+          "userDefined": false
+        }
+      ],
+      "count": 0,
+      "id": "811a6ee8-3ac0-4140-bf75-bc47c998b88f",
+      "updated": null
+    },
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "My tooth hurts",
+          "userDefined": false
+        }
+      ],
+      "count": 0,
+      "id": "e1d7437a-64a6-4e6e-b602-661a9906c45f",
+      "updated": null
+    },
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "My rectum hurts",
+          "userDefined": false
+        }
+      ],
+      "count": 0,
+      "id": "4309aace-2c1a-4ca2-8a7c-bbcc4d2fd5da",
+      "updated": null
+    },
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "My skin hurts",
+          "userDefined": false
+        }
+      ],
+      "count": 0,
+      "id": "97e202e6-5e4f-407d-a2bb-6db4bf2c4643",
+      "updated": null
+    },
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "My Extremities hurts",
+          "userDefined": false
+        }
+      ],
+      "count": 0,
+      "id": "25a59b9d-53ac-4d92-bd53-bdda2cd60be7",
+      "updated": null
+    },
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "My leg hurts",
+          "userDefined": false
+        }
+      ],
+      "count": 0,
+      "id": "3494ed95-4e8d-47c4-9a58-ff8d6b875323",
+      "updated": null
+    },
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "I feel Chills",
+          "userDefined": false
+        }
+      ],
+      "count": 0,
+      "id": "419d1226-1958-4594-97ce-ce356332aa87",
+      "updated": null
+    },
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "I feel Fever",
+          "userDefined": false
+        }
+      ],
+      "count": 0,
+      "id": "174133cf-e26c-480c-8d54-46f8b3842ac2",
+      "updated": null
+    },
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "I feel Paresthesia",
+          "userDefined": false
+        }
+      ],
+      "count": 0,
+      "id": "e372bc39-6895-4e48-84f1-5d53890e8bb7",
+      "updated": null
+    },
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "I feel numbness",
+          "userDefined": false
+        }
+      ],
+      "count": 0,
+      "id": "c54d7859-2061-459c-9928-f2174aa06a22",
+      "updated": null
+    },
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "I feel tingling",
+          "userDefined": false
+        }
+      ],
+      "count": 0,
+      "id": "b01828c1-8db2-4d13-99ad-e0156f81a6a7",
+      "updated": null
+    },
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "I feel electric tweaks",
+          "userDefined": false
+        }
+      ],
+      "count": 0,
+      "id": "fda99438-f4a0-4d84-b066-ac1771701127",
+      "updated": null
+    },
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "I feel Light-headed",
+          "userDefined": false
+        }
+      ],
+      "count": 0,
+      "id": "bfb64dad-0c4b-494e-9f4a-264ac815c90b",
+      "updated": null
+    },
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "I feel Dizzy",
+          "userDefined": false
+        }
+      ],
+      "count": 1,
+      "id": "481173ab-93f7-4647-8584-503c27f8f9e3",
+      "updated": null
+    },
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "I feel My mouth is dry",
+          "userDefined": false
+        }
+      ],
+      "count": 0,
+      "id": "531ae580-d88e-412c-99b6-9ad656c6f3d9",
+      "updated": null
+    },
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "I feel Nauseated",
+          "userDefined": false
+        }
+      ],
+      "count": 0,
+      "id": "d948c8c8-956e-4756-a7f5-f30ba67133b0",
+      "updated": null
+    },
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "I feel Sick",
+          "userDefined": false
+        }
+      ],
+      "count": 0,
+      "id": "1699f85a-e9fd-4e5f-861b-5b4bf8a2608c",
+      "updated": null
+    },
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "I feel like I have the flu",
+          "userDefined": false
+        }
+      ],
+      "count": 0,
+      "id": "c00e9f26-bf01-4c8a-869a-d319ba51f106",
+      "updated": null
+    },
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "I feel like I have to vomit",
+          "userDefined": false
+        }
+      ],
+      "count": 0,
+      "id": "026e341f-88bd-4d1b-a6eb-5d4dc1180cf3",
+      "updated": null
+    },
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "I feel Short of breath",
+          "userDefined": false
+        }
+      ],
+      "count": 0,
+      "id": "a1d2e3af-edae-4be3-944a-e008cdb653ee",
+      "updated": null
+    },
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "I feel Sleepy",
+          "userDefined": false
+        }
+      ],
+      "count": 0,
+      "id": "7dbec827-c167-4e9a-8f9a-d2df9fce6285",
+      "updated": null
+    },
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "I feel Sweaty",
+          "userDefined": false
+        }
+      ],
+      "count": 0,
+      "id": "a688ca6f-4711-4264-9fce-283c50d3e4e3",
+      "updated": null
+    },
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "I feel Thirsty",
+          "userDefined": false
+        }
+      ],
+      "count": 0,
+      "id": "e98f8324-8f78-4577-a385-6e08aac22b31",
+      "updated": null
+    },
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "I feel Tired",
+          "userDefined": false
+        }
+      ],
+      "count": 0,
+      "id": "787941e4-d1e4-4c41-affc-40e161922928",
+      "updated": null
+    },
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "I feel Weak",
+          "userDefined": false
+        }
+      ],
+      "count": 0,
+      "id": "0215e0e3-de74-490f-af1e-f7a235c4a704",
+      "updated": null
+    },
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "I feel the room spinning around me",
+          "userDefined": false
+        }
+      ],
+      "count": 0,
+      "id": "c3b08b4c-9a10-4351-8963-7e68a5f4be11",
+      "updated": null
+    },
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "I can't Breathe normally",
+          "userDefined": false
+        }
+      ],
+      "count": 0,
+      "id": "34bec877-b38e-493f-a035-07a213b4e7da",
+      "updated": null
+    },
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "I can't Hear normally",
+          "userDefined": false
+        }
+      ],
+      "count": 0,
+      "id": "4719b511-0640-4eca-aea2-7ae49d85e4f5",
+      "updated": null
+    },
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "I can't Move one side – arm and/or leg",
+          "userDefined": false
+        }
+      ],
+      "count": 0,
+      "id": "4bf4e0c3-0873-41bc-ba3d-d1faa7946fcb",
+      "updated": null
+    },
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "I can't Pass a bowel action normally",
+          "userDefined": false
+        }
+      ],
+      "count": 0,
+      "id": "f3bc7aa9-b29d-4303-bba8-2cf712a03077",
+      "updated": null
+    },
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "I can't Pass urine normally",
+          "userDefined": false
+        }
+      ],
+      "count": 0,
+      "id": "1c781007-239d-42a6-a0a9-ed8f0cf5587c",
+      "updated": null
+    },
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "I can't Remember normally",
+          "userDefined": false
+        }
+      ],
+      "count": 0,
+      "id": "0281aa56-9954-4513-b438-5879c477f7dd",
+      "updated": null
+    },
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "I can't See properly",
+          "userDefined": false
+        }
+      ],
+      "count": 0,
+      "id": "3cd43f53-bf3f-4d2d-a617-30fd81054857",
+      "updated": null
+    },
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "I can't Sleep normally",
+          "userDefined": false
+        }
+      ],
+      "count": 0,
+      "id": "919e5bc4-88c6-4de8-beab-d57a5abb38c5",
+      "updated": null
+    },
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "I can't Smell things normally",
+          "userDefined": false
+        }
+      ],
+      "count": 0,
+      "id": "1388fc34-769a-4b75-8d96-ace7df6f39d5",
+      "updated": null
+    },
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "I can't Speak normally",
+          "userDefined": false
+        }
+      ],
+      "count": 0,
+      "id": "8a86430c-8f97-420e-bf3c-8426e9883773",
+      "updated": null
+    },
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "I can't Stop passing watery bowel actions",
+          "userDefined": false
+        }
+      ],
+      "count": 0,
+      "id": "91ca1a9b-7a1e-47f8-93e1-377c10901ec6",
+      "updated": null
+    },
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "I can't Stop scratching",
+          "userDefined": false
+        }
+      ],
+      "count": 0,
+      "id": "213afdcb-1bb7-4651-a3bb-b0108679932c",
+      "updated": null
+    },
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "I can't Stop sweating",
+          "userDefined": false
+        }
+      ],
+      "count": 0,
+      "id": "b02786bb-591f-4f49-ad56-0e52d7914e90",
+      "updated": null
+    },
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "I can't Swallow normally",
+          "userDefined": false
+        }
+      ],
+      "count": 0,
+      "id": "19aec8e4-661c-4e2a-87fe-1e67fe416d26",
+      "updated": null
+    },
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "I can't Taste properly",
+          "userDefined": false
+        }
+      ],
+      "count": 0,
+      "id": "776e844a-58bf-4513-a200-3bac9b81ac97",
+      "updated": null
+    },
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "I can't Walk normally",
+          "userDefined": false
+        }
+      ],
+      "count": 0,
+      "id": "150e6aae-1800-4348-853b-c027d18cea33",
+      "updated": null
+    },
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "I can't Write normally",
+          "userDefined": false
+        }
+      ],
+      "count": 0,
+      "id": "b5a0e562-096b-4475-8061-d737fc507e4e",
+      "updated": null
+    },
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "I have ringing in my ears",
+          "userDefined": false
+        }
+      ],
+      "count": 0,
+      "id": "a8ac8ee4-d333-47b9-959d-64bbc494c095",
+      "updated": null
+    },
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "I have hissing in my ears",
+          "userDefined": false
+        }
+      ],
+      "count": 0,
+      "id": "46cedd9f-2aaf-4815-941e-8467b6be2c90",
+      "updated": null
+    },
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "I have Blindness",
+          "userDefined": false
+        }
+      ],
+      "count": 0,
+      "id": "0fb86bbf-4c47-432f-a014-13554bde6c6d",
+      "updated": null
+    },
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "I have blurred vision",
+          "userDefined": false
+        }
+      ],
+      "count": 0,
+      "id": "4c2f79f7-bd95-4730-aa45-08549f6de89d",
+      "updated": null
+    },
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "I have double vision",
+          "userDefined": false
+        }
+      ],
+      "count": 0,
+      "id": "eebd2d62-bc36-481b-a939-abf14034057a",
+      "updated": null
+    },
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "I have leg pain",
+          "userDefined": false
+        }
+      ],
+      "count": 0,
+      "id": "dccb7d5e-1b8d-46e5-83a6-79c7891a1195",
+      "updated": null
+    },
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "I have Chronic pain",
+          "userDefined": false
+        }
+      ],
+      "count": 0,
+      "id": "7b541761-bb89-4c5b-86d1-3700ac4f29c5",
+      "updated": null
+    },
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "I am losing hearing",
+          "userDefined": false
+        }
+      ],
+      "count": 0,
+      "id": "44202830-d34c-4e77-9aa9-aeb19b9e0a1a",
+      "updated": null
+    },
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "I am about to black out",
+          "userDefined": false
+        }
+      ],
+      "count": 0,
+      "id": "9efca54c-68cb-40e2-bd83-38f6147a51ab",
+      "updated": null
+    },
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "sounds are too loud",
+          "userDefined": false
+        }
+      ],
+      "count": 0,
+      "id": "66fc1884-5fe0-4dfc-b5b3-8b19e3df1119",
+      "updated": null
+    }
+  ],
+  "webhookForSlotFilling": false,
+  "webhookUsed": false
+}
