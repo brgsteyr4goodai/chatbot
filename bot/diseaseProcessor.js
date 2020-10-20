@@ -52,6 +52,6 @@ module.exports = class {
     logSymptomsAndCauses (output) {
         output.addOutput("Running a diagnose...");
         output.addDebug("Symptoms: "+JSON.stringify(symptoms));
-        output.addOutput("Possible causes: "+this.causes.map(({n}) => n).join(", "));
+        output.addOutput("Possible causes: "+this.causes.map(({name}) => name).join(", "));
     }
 }
