@@ -73,10 +73,12 @@ const cmds = {
     }
 };
 
-const loop = async answer => {
-    let [ cmd, ...args ] = answer.slice(config.prefix.length).split(" ");
-    if (answer.slice(0, config.prefix.length) != config.prefix) {
-        console.log(`${format("Bot", config.botname)}: ${format(await bot.message(answer), config.bottext)}`);
+const loop = async input => {
+    let [ cmd, ...args ] = input.slice(config.prefix.length).split(" ");
+    if (input.slice(0, config.prefix.length) != config.prefix) {
+        let output = await bot.message(input);
+        if (config.debug) console.log(`${format("[Debug]", config.dbgname)}: ${format(output.debug, config.dbgtext)}`);
+        console.log(`${format("Bot", config.botname)}: ${format(output, config.bottext)}`);
     }
     else if (cmds[cmd] != undefined) {
         cmds[cmd].main(args);

@@ -21,7 +21,7 @@ class Match {
             let matches = text.match(regex);
             if (matches) outputs = outputs.concat(matches);
         });
-        return outputs;
+        return outputs.map(string => string.replace(/^a\s/, "").toLowerCase());
     }
 }
 

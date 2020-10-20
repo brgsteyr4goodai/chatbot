@@ -1,8 +1,11 @@
 {
+  "debug": true,
   "prefix": "#",
   "botname": "fgGreen",
   "bottext": "reset",
   "usrname": "fgCyan",
   "usrtext": "reset",
-  "errtext": "fgRed"
+  "errtext": "fgRed",
+  "dbgname": "fgMagenta",
+  "dbgtext": "reset"
 }

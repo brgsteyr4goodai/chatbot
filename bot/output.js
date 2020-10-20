@@ -7,10 +7,12 @@ module.exports = class {
         this.debug = [];
 
         this.allowDebug = config.debug;
+        return this;
     }
 
     addOutput (...args) {
         this.out.push(...args);
+        return this;
     }
 
     dfIO (...args) {
@@ -19,10 +21,12 @@ module.exports = class {
 
     addDf (...args) {
         this.dfIO(...args);
+        return this;
     }
 
     addDebug (...args) {
         this.debug.push(...args);
+        return this;
     }
 
     get object () {
