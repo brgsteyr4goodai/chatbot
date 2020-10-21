@@ -19,7 +19,7 @@ class CLI {
         let [ cmd, ...args ] = input.slice(config.prefix.length).split(" ");
         if (input.slice(0, config.prefix.length) != config.prefix) {
             let output = await bot.message(input);
-            if (config.debug && output.debug.length !== 0) console.log(`${format("[Debug]", config.dbgname)}: ${format(output.debug, config.dbgtext)}`);
+            if (config.debug && output.debug.length !== 0) console.log(`${format("[Debug]", config.dbgname)}:`, ...output.debug);
             if (output.df.length !== 0) console.log(`${format("Bot", config.botname)}: ${format(output.df[0], config.bottext)}`);
             if (output.out.length !== 0) console.log(`${format(output.out.join("\n"), config.bottext)}`);
         }
