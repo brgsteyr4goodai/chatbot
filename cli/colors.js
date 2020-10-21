@@ -1,4 +1,4 @@
-{
+module.exports = Object.fromEntries(Object.entries({
     "reset": 0,
     "bright": 1,
     "dim": 2,
@@ -22,4 +22,4 @@
     "bgMagenta": 45,
     "bgCyan": 46,
     "bgWhite":47
-}
+}).map(([ key, value]) => [ key, `\x1b[${value}m`]));
