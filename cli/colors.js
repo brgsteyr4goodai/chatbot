@@ -22,4 +22,4 @@ module.exports = Object.fromEntries(Object.entries({
     "bgMagenta": 45,
     "bgCyan": 46,
     "bgWhite":47
-}).map(([ key, value]) => [ key, `\x1b[${value}m`]));
+}).map(([ key, value ]) => [ key, `\x1b[${value}m` ]));

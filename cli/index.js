@@ -17,18 +17,28 @@ class CLI {
     static loop = async input => {
         let { config, format } = this;
         let [ cmd, ...args ] = input.slice(config.prefix.length).split(" ");
-        if (input.slice(0, config.prefix.length) != config.prefix) {
-            let output = await bot.message(input);
-            if (config.debug && output.debug.length !== 0) console.log(`${format("[Debug]", config.dbgname)}:`, ...output.debug);
-            if (output.df.length !== 0) console.log(`${format("Bot", config.botname)}: ${format(output.df[0], config.bottext)}`);
-            if (output.out.length !== 0) console.log(`${format(output.out.join("\n"), config.bottext)}`);
-        }
-        else if (cmds[cmd] != undefined) {
-            cmds[cmd](args);
+
+        if (input.slice(0, config.prefix.length) === config.prefix) {
+            if (cmds[cmd] !== undefined) {
+                cmds[cmd](args);
+            }
+            else {
+                console.log(`${format(`Command ${cmd} not found`, config.errtext)}`);
+            }
         }
         else {
-            console.log(`${format(`Command ${cmd} not found`, config.errtext)}`);
+            let { debug, df, out } = await bot.message(input);
+            if (config.debug && debug.length !== 0) {
+                console.log(`${format("[Debug]", config.dbgname)}:`, ...debug);
+            }
+            if (df.length !== 0) {
+                console.log(`${format("Bot", config.botname)}:`, format(df.join(" "), config.bottext));
+            }
+            if (out.length !== 0) {
+                console.log(format(out.join("\n"), config.bottext));
+            }
         }
+
         rl.question(`${format("You", config.usrname)}: ${this.colors[config.usrtext]}`, this.loop);
     };
     
@@ -50,5 +60,4 @@ class CLI {
 }
 
 const cmds = require("./cmds.js")(CLI);
-
 CLI.start();
