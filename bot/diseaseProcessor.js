@@ -4,8 +4,6 @@ const config = require("./config.json");
 const symptoms = require("./pm/symptoms.json");
 const match = new Match(symptoms);
 
-//output until cli gets color methods
-const colors = require("./colors.js");
 
 module.exports = class {
     constructor() {
