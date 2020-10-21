@@ -16,9 +16,10 @@ class CLI {
 
     static loop = async input => {
         let { config, format } = this;
-        let [ cmd, ...args ] = input.slice(config.prefix.length).split(" ");
 
         if (input.slice(0, config.prefix.length) === config.prefix) {
+            let [ cmd, ...args ] = input.slice(config.prefix.length).split(" ");
+            
             if (cmds[cmd] !== undefined) {
                 cmds[cmd](args);
             }
@@ -28,6 +29,7 @@ class CLI {
         }
         else {
             let { debug, df, out } = await bot.message(input);
+
             if (config.debug && debug.length !== 0) {
                 console.log(`${format("[Debug]", config.dbgname)}:`, ...debug);
             }
@@ -43,9 +45,8 @@ class CLI {
     };
     
     static format = (string, color) => {
-        let { colors } = this;
-        color = color.constructor.name === "Array" ? color : [ color ]; 
-        return `${colors.reset}${color.map(c => colors[c]).join("")}${string}${colors.reset}`;
+        color = color.constructor.name === "Array" ? color : [ color ];
+        return `${this.colors.reset}${color.map(c => this.colors[c]).join("")}${string}${this.colors.reset}`;
     };
 
     static saveConfig() {

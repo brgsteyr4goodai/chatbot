@@ -2,6 +2,7 @@ let botClass = require("../../bot");
 const utils = require("./utils.js");
 const { MessageEmbed : Embed } = require("discord.js");
 const config = require("../config.json");
+const { contributors } = require("../../package.json");
 
 module.exports = class {
     bind (msg, active) {
@@ -59,7 +60,7 @@ module.exports = class {
         let embed = new Embed()
             .setTitle("Chatbot 4goodai")
             .setDescription("Developed for https://www.ada.wien/hackathon-fur-gute-ki-4goodai-2020/")
-            .addField("Contributors", ["Oliver Kovacs", "Ulrich Barnstedt", "Elias Leitinger", "Hanna Inselsbacher"].join("\n"))
+            .addField("Contributors", contributors.map(({ name }) => name).join("\n"))
             .addField("Technologies used", ["[Discord.js](https://discord.js.org/#/)", "..."].join("\n"))
             .setFooter(client.user.tag, client.user.displayAvatarURL())
 

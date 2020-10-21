@@ -16,6 +16,19 @@
     "chatbot"
   ],
   "author": "Oliver Kovacs",
+  "contributors": [
+    {
+      "name": "Oliver Kovacs",
+      "email": "oliver.kovacs.dev@gmail.com",
+      "url": "https://github.com/OliverKovacs"
+    },
+    {
+      "name": "Ulrich Barnstedt"
+    },
+    {
+      "name": "Hanna Inselsbacher"
+    }
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/brgsteyr4goodai/chatbot/issues"
