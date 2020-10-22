@@ -54,7 +54,7 @@ class ICD {
     }
 
     async search(term) {
-        return await this.get(`search?q=${term}`);
+        return await this.get(encodeURI(`search?q=${term}`));
     }
 
     async get(path) {

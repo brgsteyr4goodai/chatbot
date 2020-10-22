@@ -1,9 +1,15 @@
 const Match = require("./pm/match.js");
 const Symptoma = require("./api/symptoma.js");
+const { ICD, ICDRes } = require("./api/icd.js");
 const config = require("./config.json");
+const icd_creds = require("./credentials/icd.json");
 const symptoms = require("./pm/symptoms.json");
 const match = new Match(symptoms);
+let icd;
 
+(async () => {
+    icd = await new ICD(icd_creds.client_id, icd_creds.client_secret);
+})();
 
 module.exports = class {
     constructor() {
@@ -39,12 +45,20 @@ module.exports = class {
 
     //------------------------ output
 
-    getInfo(output, response) {
+    async getInfo(output, response) {
         if (response.queryResult.parameters.fields.number === undefined) return;
         let index = response.queryResult.parameters.fields.number.listValue.values[0].numberValue;
+        let name = this.causes[index-1].name;
 
-
-        output.addOutput(this.causes[index-1].name)
+        let icdres = await (await icd.search(name)).first();
+        output.addDebug("ICD", {
+            id: icdres.getId(),
+            url: ICDRes.toUrl(icdres.getId()),
+            name: icdres.getTitle(),
+            description: icdres.getDefinition(),
+            synonyms: icdres.getSynonyms()
+        });
+        output.addOutput(name);
     }
 
     logSymptomsAndCauses (output) {

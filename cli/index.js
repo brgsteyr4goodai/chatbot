@@ -33,11 +33,11 @@ class CLI {
             if (config.debug && debug.length !== 0) {
                 console.log(`${format("[Debug]", config.dbgname)}:`, ...debug);
             }
-            if (df.length !== 0) {
-                console.log(`${format("Bot", config.botname)}:`, format(df.join(" "), config.bottext));
-            }
             if (out.length !== 0) {
                 console.log(format(out.join("\n"), config.bottext));
+            }
+            if (df.length !== 0) {
+                console.log(`${format("Bot", config.botname)}:`, format(df.join(" "), config.bottext));
             }
         }
 
