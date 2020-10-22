@@ -10,7 +10,7 @@ const Output = require("./output.js");
 class Bot {
     constructor() {
         this.client = new DialogFlow.SessionsClient({
-            keyFilename : `${__dirname}/dialogflow_credentials/public.json`
+            keyFilename : `${__dirname}/credentials/df.json`
         });
         this.sessionId = uuid.v4();
         this.path = this.client.projectAgentSessionPath(config.projectID, this.sessionId);

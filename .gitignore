@@ -6,3 +6,4 @@ dc/token.txt
 .vscode
 .idea
 bot/dialogflow_credentials/key.json
+bot/credentials/key.json
