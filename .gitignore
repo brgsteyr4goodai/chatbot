@@ -3,6 +3,7 @@ dc/token.txt
 
 .npmrc
 
+.vs
 .vscode
 .idea
 bot/dialogflow_credentials/key.json
