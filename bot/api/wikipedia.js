@@ -3,9 +3,10 @@ const https = require("https");
 const querystring = require("querystring");
 
 class Wikipedia {
+
+    static lang = "en";
     
     static options = {
-        hostname: "en.wikipedia.org",
         port: 443,
         path: "/",
         method: "GET",
@@ -19,11 +20,16 @@ class Wikipedia {
         "format": "json"
     };
 
+    static lang(lang) {
+        this.lang = lang;
+    }
+
     static query(obj) {
         return new Promise((resolve, reject) => {
+            const hostname = `${this.lang}.wikipedia.org`;
             const qstring = querystring.stringify({ ...this.queryobj, ...obj });
             const path = `/w/api.php?${qstring}`;
-            const options = { ...this.options, path };
+            const options = { ...this.options, hostname, path };
 
             let req = https.request(options, res => {
                 let data = "";
