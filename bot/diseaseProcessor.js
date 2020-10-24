@@ -1,6 +1,7 @@
 const Match = require("./pm/match.js");
 const Symptoma = require("./api/symptoma.js");
 const { ICD, ICDRes } = require("./api/icd.js");
+const Wikipedia = require("./api/wikipedia.js");
 const config = require("./config.json");
 const icd_creds = require("./credentials/icd.json");
 const symptoms = require("./pm/symptoms.json");
@@ -50,13 +51,24 @@ module.exports = class {
         let index = response.queryResult.parameters.fields.number.listValue.values[0].numberValue;
         let name = this.causes[index-1].name;
 
-        let icdres = await (await icd.search(name)).first();
-        output.addDebug("ICD", {
-            id: icdres.getId(),
-            url: ICDRes.toUrl(icdres.getId()),
-            name: icdres.getTitle(),
-            description: icdres.getDefinition(),
-            synonyms: icdres.getSynonyms()
+        let icdRes = await (await icd.search(name)).first();
+        output.addDebug("\nICD", {
+            id: icdRes.getId(),
+            url: ICDRes.toUrl(icdRes.getId()),
+            name: icdRes.getTitle(),
+            description: icdRes.getDefinition(),
+            synonyms: icdRes.getSynonyms()
+        });
+
+        let wikipediaRes = await Wikipedia.search(name);
+        let id = Wikipedia.getId(wikipediaRes);
+        let article = Wikipedia.getPage(await Wikipedia.article(id));
+        let extract = Wikipedia.getPage(await Wikipedia.extract(id));
+        output.addDebug("\nWikipedia", {
+            id: article.pageid,
+            url: article.fullurl,
+            name: article.title,
+            description: Wikipedia.getFirstParagraph(extract),
         });
         output.addOutput(name);
     }

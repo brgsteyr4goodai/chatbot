@@ -151,7 +151,7 @@ class ICDRes {
     }
 
     static toId(url) {
-        return url.match(/\d+/)[0];
+        return JSON.parse(url.match(/\d+/)[0]);
     }
 
     static async getIdList(list, icd, start, end) {
