@@ -7,6 +7,10 @@ const config = require("./config.json");
 const DiseaseProcessor = require("./diseaseProcessor.js");
 const Output = require("./output.js");
 
+const cmds = {
+
+}
+
 class Bot {
     constructor() {
         this.client = new DialogFlow.SessionsClient({
@@ -25,28 +29,36 @@ class Bot {
      */
     async message(text) {
         if (!text || typeof text !== "string") text = " ";
-        let output = new Output();
+
+        this.output = new Output();
+
+        if (text.slice(0, config.prefix.length) === config.prefix) {
+            let [ cmd, ...args ] = text.slice(1).split(" ");
+            cmds[cmd](args);
+            return this.output;
+        }
 
         //query dialogflow
         let query = this.createQuery(text);
         let [ response ] = await this.client.detectIntent(query);
         if (response.queryResult.fulfillmentText !== undefined && response.queryResult.fulfillmentText !== "" && response.queryResult.fulfillmentText !== " ") {
-            output.addDf(response.queryResult.fulfillmentText);
+            this.output.addDf(response.queryResult.fulfillmentText);
         }
 
         //pass intent to local function
         let parsed = response.queryResult.intent.displayName.split(":");
         if (parsed[0] in this) {
-            let additionalStrings = await this[parsed[0]](parsed[1], {response, query, text: text, output})
+            await this[parsed[0]](parsed[1], { response, query, text: text })
         }
 
-        return output;
+        console.log(this.output);
+        return this.output;
     }
 
     instance () {
         //create necessary instance of other match here
 
-        this.diseaseProcessor = new DiseaseProcessor();
+        this.diseaseProcessor = new DiseaseProcessor(this);
     }
 
     /**
@@ -79,10 +91,10 @@ class Bot {
                 break;
             case "diagnose":
                 await this.diseaseProcessor.getDisease();
-                await this.diseaseProcessor.logSymptomsAndCauses(data.output);
+                await this.diseaseProcessor.logSymptomsAndCauses();
                 break;
             case "postDiagnoseNum":
-                await this.diseaseProcessor.getInfoByNumber(data.output, data.response);
+                await this.diseaseProcessor.getInfoByNumber(data.response);
                 break;
         }
     }
@@ -94,7 +106,7 @@ class Bot {
     async cancerinfo (mode, data) {
         switch (mode) {
             case "init":
-                await this.diseaseProcessor.getInfoByName(data.output, data.response)
+                await this.diseaseProcessor.getInfoByName(data.response)
                 break;
         }
     }

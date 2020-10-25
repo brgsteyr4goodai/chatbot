@@ -14,7 +14,8 @@ let icd;
 })();
 
 module.exports = class {
-    constructor() {
+    constructor(bot) {
+        this.bot = bot;
         this.symptoms = [];
         this.causes = [];
     }
@@ -47,17 +48,17 @@ module.exports = class {
 
     //------------------------ output
 
-    async getInfoByNumber (output, response) {
+    async getInfoByNumber (response) {
         if (response.queryResult.parameters.fields.number === undefined) return;
         let index = response.queryResult.parameters.fields.number.listValue.values[0].numberValue;
         let name = this.causes[index-1].name;
 
-        output.addDebug("\nICD", await Wrapper.get(name, icd));
-        output.addDebug("\nWikipedia", await Wrapper.get(name, Wikipedia));
-        output.addOutput(name);
+        this.bot.output.addDebug("\nICD", await Wrapper.get(name, icd));
+        this.bot.output.addDebug("\nWikipedia", await Wrapper.get(name, Wikipedia));
+        this.bot.output.addOutput(name);
     }
 
-    async getInfoByName (output, response) {
+    async getInfoByName (response) {
         if (response.queryResult.parameters.fields.illness === undefined) return;
         let illness = response.queryResult.parameters.fields.illness.stringValue;
 
@@ -72,17 +73,17 @@ module.exports = class {
         });
         await Promise.all(srcs);
 
-        output.addDebug(Object.fromEntries(info.map(({ src, id, name }) => [ src, { id, name } ])));
+        this.bot.output.addDebug(Object.fromEntries(info.map(({ src, id, name }) => [ src, { id, name } ])));
 
-        output.addOutput("");
+        this.bot.output.addOutput("");
         info.forEach(src => {
-            output.addOutput(`${src.src}:`, src.description, `Read more at: ${src.url.join(", ")}\n`);
+            this.bot.output.addOutput(`${src.src}:`, src.description, `Read more at: ${src.url.join(", ")}\n`);
         });
     }
 
-    logSymptomsAndCauses (output) {
-        output.addOutput("Running a diagnose...");
-        output.addDebug("Symptoms:", this.symptoms);
-        output.addOutput("Possible causes: "+this.causes.map(({ name }) => name).join(", "));
+    logSymptomsAndCauses () {
+        this.bot.output.addOutput("Running a diagnose...");
+        this.bot.output.addDebug("Symptoms:", this.symptoms);
+        this.bot.output.addOutput("Possible causes: "+this.causes.map(({ name }) => name).join(", "));
     }
 }

@@ -8,8 +8,6 @@ module.exports = class {
         this.out = [];
         this.df = [];
         this.debug = [];
-
-        this.allowDebug = config.debug;
         return this;
     }
 
@@ -28,7 +26,7 @@ module.exports = class {
     }
 
     addDebug (...args) {
-        if (this.allowDebug) {
+        if (config.debug) {
             this.debug.push(...args);
         }
         return this;
