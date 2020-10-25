@@ -61,9 +61,17 @@ module.exports = class {
         if (response.queryResult.parameters.fields.illness === undefined) return;
         let illness = response.queryResult.parameters.fields.illness.stringValue;
 
-        //TODO: Search by name and output
+        let info = [];
 
-        output.addOutput(illness);
+        info.push(await Wrapper.get(illness, icd));
+        info.push(await Wrapper.get(illness, Wikipedia));
+
+        output.addDebug(Object.fromEntries(info.map(({ src, id, name }) => [ src, { id, name } ])));
+
+        output.addOutput("");
+        info.forEach(src => {
+            output.addOutput(`${src.src}:`, src.description, `Read more at: ${src.url.join(", ")}\n`);
+        });
     }
 
     logSymptomsAndCauses (output) {

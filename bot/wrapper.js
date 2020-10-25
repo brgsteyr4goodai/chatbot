@@ -7,9 +7,15 @@ class Wrapper {
     static async ICD(name, icd) {
         let res = await (await icd.search(name)).first();
 
+        let id = res.getId();
+
         return {
-            id: res.getId(),
-            url: res.constructor.toUrl(res.getId()),
+            id,
+            url: [
+                `https://icd.who.int/browse11/l-m/en#/http%3A%2F%2Fid.who.int%2Ficd%2Fentity%2F${id}`,
+                `https://icd.who.int/dev11/f/en#/http%3A%2F%2Fid.who.int%2Ficd%2Fentity%2F${id}`
+            ],
+            src: "ICD",
             name: res.getTitle(),
             description: res.getDefinition(),
             synonyms: res.getSynonyms()
@@ -24,7 +30,8 @@ class Wrapper {
 
         return {
             id: article.pageid,
-            url: article.fullurl,
+            url: [ article.fullurl ],
+            src: "Wikipedia",
             name: article.title,
             description: Wikipedia.getFirstParagraph(extract),
         };

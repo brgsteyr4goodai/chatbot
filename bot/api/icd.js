@@ -123,7 +123,10 @@ class ICDRes {
     }
 
     getSynonyms() {
-        return this.synonym.map(({ label }) => label["@value"]);
+        if (this.synonym) {
+            this.synonym.map(({ label }) => label["@value"]);
+        }
+        return [];
     }
 
     async first() {
