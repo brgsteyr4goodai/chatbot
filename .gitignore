@@ -6,5 +6,5 @@ dc/token.txt
 .vs
 .vscode
 .idea
-bot/dialogflow_credentials/key.json
+bot/credentials/key.json
 bot/credentials/key.json

@@ -82,7 +82,19 @@ class Bot {
                 await this.diseaseProcessor.logSymptomsAndCauses(data.output);
                 break;
             case "postDiagnoseNum":
-                await this.diseaseProcessor.getInfo(data.output, data.response);
+                await this.diseaseProcessor.getInfoByNumber(data.output, data.response);
+                break;
+        }
+    }
+
+    /**
+     * @param {string} mode
+     * @param {interIO} data
+     */
+    async cancerinfo (mode, data) {
+        switch (mode) {
+            case "init":
+                await this.diseaseProcessor.getInfoByName(data.output, data.response)
                 break;
         }
     }

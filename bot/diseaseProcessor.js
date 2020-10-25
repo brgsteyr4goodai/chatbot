@@ -47,7 +47,7 @@ module.exports = class {
 
     //------------------------ output
 
-    async getInfo(output, response) {
+    async getInfoByNumber (output, response) {
         if (response.queryResult.parameters.fields.number === undefined) return;
         let index = response.queryResult.parameters.fields.number.listValue.values[0].numberValue;
         let name = this.causes[index-1].name;
@@ -55,6 +55,15 @@ module.exports = class {
         output.addDebug("\nICD", await Wrapper.get(name, icd));
         output.addDebug("\nWikipedia", await Wrapper.get(name, Wikipedia));
         output.addOutput(name);
+    }
+
+    async getInfoByName (output, response) {
+        if (response.queryResult.parameters.fields.illness === undefined) return;
+        let illness = response.queryResult.parameters.fields.illness.stringValue;
+
+        //TODO: Search by name and output
+
+        output.addOutput(illness);
     }
 
     logSymptomsAndCauses (output) {
