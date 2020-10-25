@@ -1,6 +1,6 @@
 const Match = require("./pm/match.js");
 const Symptoma = require("./api/symptoma.js");
-const { ICD, ICDRes } = require("./api/icd.js");
+const { ICD } = require("./api/icd.js");
 const Wikipedia = require("./api/wikipedia.js");
 const Wrapper = require("./wrapper.js");
 const config = require("./config.json");
@@ -61,10 +61,16 @@ module.exports = class {
         if (response.queryResult.parameters.fields.illness === undefined) return;
         let illness = response.queryResult.parameters.fields.illness.stringValue;
 
+        let srcs = [ icd, Wikipedia ];
         let info = [];
-
-        info.push(await Wrapper.get(illness, icd));
-        info.push(await Wrapper.get(illness, Wikipedia));
+        
+        srcs = srcs.map(async src => {
+            let res = await Wrapper.get(illness, src);
+            if (res) {
+                info.push(res);
+            }
+        });
+        await Promise.all(srcs);
 
         output.addDebug(Object.fromEntries(info.map(({ src, id, name }) => [ src, { id, name } ])));
 

@@ -7,6 +7,10 @@ class Wrapper {
     static async ICD(name, icd) {
         let res = await (await icd.search(name)).first();
 
+        if (!res) {
+            return;
+        }
+
         let id = res.getId();
 
         return {
