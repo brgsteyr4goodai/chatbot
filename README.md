@@ -6,14 +6,25 @@
 ## Working principle of bot
 ![Diagram](https://raw.githubusercontent.com/brgsteyr4goodai/chatbot/main/assets/diagram.svg)
 
-## Used technologies
-- [Github](https://github.com/)
-- [Node.js](https://nodejs.org/en/)
-- [NPM](https://www.npmjs.com/)
-- [Dialogflow ES](https://dialogflow.cloud.google.com/)
-- [Discord.js](https://discord.js.org/#/)
-- [UUID](https://www.npmjs.com/package/uuid)
-- [repl.it](https://repl.it/)
+### Languages and Tools
+
+[<img align="left" alt="JavaScript" width="28px" src="./assets/icons/javascript.svg" />]()
+[<img align="left" alt="Dialogflow" width="28px" src="./assets/icons/dialogflow.svg" />](https://cloud.google.com/dialogflow)
+[<img align="left" alt="Google Cloud" width="28px" src="./assets/icons/googlecloud.svg" />](https://cloud.google.com/)
+[<img align="left" alt="git" width="28px" src="./assets/icons/git.svg" />](https://git-scm.com/)
+[<img align="left" alt="GitHub" width="28px" src="https://simpleicons.org/icons/github.svg" />](https://github.com/)
+[<img align="left" alt="Discord.js" width="28px" src="./assets/icons/discord.svg" />](https://discord.js.org/#//)
+[<img align="left" alt="Node.js" width="28px" src="./assets/icons/node.svg" />](https://nodejs.org/en/)
+[<img align="left" alt="npm" width="28px" src="./assets/icons/npm.svg" />](https://www.npmjs.com/)
+[<img align="left" alt="Repl" width="26px" src="./assets/icons/repl.png" />](https://repl.it/)
+[<img align="left" alt="Visual Studio Code" width="26px" src="https://raw.githubusercontent.com/vscode-icons/vscode-icons/master/icons/file_type_vscode.svg" />](https://code.visualstudio.com/)
+[<img align="left" alt="Webstorm" width="28px" src="./assets/icons/webstorm.png" />](https://www.jetbrains.com/webstorm/)
+[<img align="left" alt="drawio" width="28px" src="./assets/icons/drawio.png" />](https://app.diagrams.net/)
+
+<br />
+<br />
+
+---
 
 ## Authors
 - Oliver Kovacs
