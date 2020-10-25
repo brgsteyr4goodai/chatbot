@@ -38,9 +38,26 @@ bot.on("message", async (msg) => {
         //reply.forEach(r => msg.channel.send("Chatbot > "+r));
         //msg.channel.send("Chatbot > "+reply);
 
-        if (config.debug) {
-            reply.debug.forEach(d => msg.channel.send("[Debug] " + d));
-        }
+        reply.debug.forEach((d, idx) => {
+            if (idx === 0) {
+                msg.channel.send("[Debug]")
+            }
+
+            let string = "";
+
+            switch (typeof d) {
+                case "object":
+                    string += "```js\n"
+                        + JSON.stringify(d, null, 2).slice(0, 1999 - 3 + 5 + 1)
+                        + "```";
+                    break;
+                default:
+                    string += d;
+                    string = string.slice(0, 1999);
+            }
+
+            msg.channel.send(string)
+        });
 
         let embed = new Discord.MessageEmbed().setColor("#03fcec")
         if (reply.out.length > 0) {
