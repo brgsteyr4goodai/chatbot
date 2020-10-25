@@ -6,7 +6,11 @@
 ## Working principle of bot
 ![Diagram](https://raw.githubusercontent.com/brgsteyr4goodai/chatbot/main/assets/diagram.svg)
 
-### Languages and Tools
+<br />
+
+---
+
+## Languages and Tools
 
 [<img align="left" alt="JavaScript" width="28px" src="./assets/icons/javascript.svg" />]()
 [<img align="left" alt="Dialogflow" width="28px" src="./assets/icons/dialogflow.svg" />](https://cloud.google.com/dialogflow)
