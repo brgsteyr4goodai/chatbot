@@ -1,4 +1,6 @@
 
+const config = require("./config.json");
+
 class Wrapper {
     static async get(name, api) {
         return await this[api.name || api.constructor.name](name, api);
@@ -37,7 +39,7 @@ class Wrapper {
             url: [ article.fullurl ],
             src: "Wikipedia",
             name: article.title,
-            description: Wikipedia.getFirstParagraph(extract),
+            description: Wikipedia.getFirstParagraph(extract).split(/\.(?!\s)|\n/).slice(0, config.wikipedia.maxParagraphs),
         };
     }
 }

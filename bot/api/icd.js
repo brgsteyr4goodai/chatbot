@@ -119,7 +119,10 @@ class ICDRes {
     }
 
     getDefinition() {
-        return this.definition["@value"];
+        if (this.definition) {
+            return this.definition["@value"];
+        }
+        return this.title["@value"];
     }
 
     getSynonyms() {

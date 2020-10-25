@@ -4,5 +4,8 @@
     "useDF": true,
     "usePM": true,
     "maxCauses": 3,
-    "debug" : true
+    "debug" : true,
+    "wikipedia": {
+        "maxParagraphs": 1
+    }
 }
