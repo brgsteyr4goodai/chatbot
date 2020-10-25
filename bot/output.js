@@ -28,7 +28,9 @@ module.exports = class {
     }
 
     addDebug (...args) {
-        this.debug.push(...args);
+        if (this.allowDebug) {
+            this.debug.push(...args);
+        }
         return this;
     }
 
