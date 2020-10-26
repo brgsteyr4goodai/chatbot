@@ -2,6 +2,7 @@
 
 [![Run on Repl.it](https://repl.it/badge/github/brgsteyr4goodai/chatbot)](https://repl.it/github/brgsteyr4goodai/chatbot)
 [![Discord](https://img.shields.io/discord/766705105491722252)](https://discord.gg/vV4PUad)
+[![License](https://img.shields.io/github/license/brgsteyr4goodai/chatbot)](https://github.com/brgsteyr4goodai/chatbot/LICENSE.md)
 
 ## Working principle of bot
 ![Diagram](https://raw.githubusercontent.com/brgsteyr4goodai/chatbot/main/assets/diagram.svg)
@@ -20,10 +21,9 @@
 [<img align="left" alt="Discord.js" width="28px" src="./assets/icons/discord.svg" />](https://discord.js.org/#//)
 [<img align="left" alt="Node.js" width="28px" src="./assets/icons/node.svg" />](https://nodejs.org/en/)
 [<img align="left" alt="npm" width="28px" src="./assets/icons/npm.svg" />](https://www.npmjs.com/)
-[<img align="left" alt="Repl" width="26px" src="./assets/icons/repl.png" />](https://repl.it/)
-[<img align="left" alt="Visual Studio Code" width="26px" src="https://raw.githubusercontent.com/vscode-icons/vscode-icons/master/icons/file_type_vscode.svg" />](https://code.visualstudio.com/)
+[<img align="left" alt="Repl" width="28px" src="./assets/icons/repl.png" />](https://repl.it/)
+[<img align="left" alt="Visual Studio Code" width="28px" src="https://raw.githubusercontent.com/vscode-icons/vscode-icons/master/icons/file_type_vscode.svg" />](https://code.visualstudio.com/)
 [<img align="left" alt="Webstorm" width="28px" src="./assets/icons/webstorm.png" />](https://www.jetbrains.com/webstorm/)
-[<img align="left" alt="drawio" width="28px" src="./assets/icons/drawio.png" />](https://app.diagrams.net/)
 
 <br />
 <br />
