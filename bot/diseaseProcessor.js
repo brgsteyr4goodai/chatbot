@@ -1,3 +1,5 @@
+
+const fs = require("fs");
 const Match = require("./pm/match.js");
 const Symptoma = require("./api/symptoma.js");
 const Wrapper = require("./wrapper.js");
@@ -5,11 +7,7 @@ const config = require("./config.json");
 const symptoms = require("./pm/symptoms.json");
 const match = new Match(symptoms);
 
-let srcs = require("./srcs.js");
-
-(async () => {
-    srcs = await Promise.all(srcs);
-})();
+srcs = fs.readdirSync(`${__dirname}/srcs/`).map(file => file.slice(0, -3));
 
 module.exports = class {
     constructor(bot) {
