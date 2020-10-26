@@ -51,7 +51,6 @@ class Bot {
             await this[parsed[0]](parsed[1], { response, query, text: text })
         }
 
-        console.log(this.output);
         return this.output;
     }
 
