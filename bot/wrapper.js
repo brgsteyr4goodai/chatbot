@@ -1,12 +1,13 @@
 
-const config = require("./config.json");
+const fs = require("fs");
+const srcs = fs.readdirSync(`${__dirname}/srcs/`);
 
 class Wrapper {
     static async get(name, api) {
         return await this[api.name || api.constructor.name](name, api);
     }
 
-    static async ICD(name, icd) {
+    /*static async ICD(name, icd) {
         let res = await (await icd.search(name)).first();
 
         if (!res) {
@@ -26,8 +27,9 @@ class Wrapper {
             description: res.getDefinition(),
             synonyms: res.getSynonyms()
         };
-    }
+    }*/
 
+    /*
     static async Wikipedia(name, Wikipedia) {
         let res = await Wikipedia.search(name);
         let id = Wikipedia.getId(res);
@@ -42,6 +44,16 @@ class Wrapper {
             description: Wikipedia.getFirstParagraph(extract).split(/\.(?!\s)|\n/).slice(0, config.wikipedia.maxParagraphs),
         };
     }
+    */
 }
+
+srcs.forEach(file => {
+    let src = require(`${__dirname}/srcs/${file}`);
+    for (const key in src) {
+        if (key !== "api") {
+            Wrapper[key] = src[key];
+        }
+    }
+})
 
 module.exports = Wrapper;

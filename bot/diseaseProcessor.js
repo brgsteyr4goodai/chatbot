@@ -1,16 +1,14 @@
 const Match = require("./pm/match.js");
 const Symptoma = require("./api/symptoma.js");
-const { ICD } = require("./api/icd.js");
-const Wikipedia = require("./api/wikipedia.js");
 const Wrapper = require("./wrapper.js");
 const config = require("./config.json");
-const icd_creds = require("./credentials/icd.json");
 const symptoms = require("./pm/symptoms.json");
 const match = new Match(symptoms);
-let icd;
+
+let srcs = require("./srcs.js");
 
 (async () => {
-    icd = await new ICD(icd_creds.client_id, icd_creds.client_secret);
+    srcs = await Promise.all(srcs);
 })();
 
 module.exports = class {
@@ -36,8 +34,8 @@ module.exports = class {
 
     addSymptoms(symptoms) {
         symptoms.forEach(symptom => {
-            if (this.symptoms.indexOf(symptom) === -1) {
-                this.symptoms.push(symptom);
+            if (this.symptoms.indexOf(symptom.toLowerCase()) === -1) {
+                this.symptoms.push(symptom.toLowerCase());
             }
         });
     }
@@ -51,33 +49,32 @@ module.exports = class {
     async getInfoByNumber (response) {
         if (response.queryResult.parameters.fields.number === undefined) return;
         let index = response.queryResult.parameters.fields.number.listValue.values[0].numberValue;
-        let name = this.causes[index-1].name;
+        let illness = this.causes[index-1].name;
 
-        this.bot.output.addDebug("\nICD", await Wrapper.get(name, icd));
-        this.bot.output.addDebug("\nWikipedia", await Wrapper.get(name, Wikipedia));
-        this.bot.output.addOutput(name);
+        await this.addInfoToOutput(illness);
     }
 
     async getInfoByName (response) {
         if (response.queryResult.parameters.fields.illness === undefined) return;
         let illness = response.queryResult.parameters.fields.illness.stringValue;
 
-        let srcs = [ icd, Wikipedia ];
+        await this.addInfoToOutput(illness);
+    }
+
+    async addInfoToOutput(illness) {
         let info = [];
-        
-        srcs = srcs.map(async src => {
+        await Promise.all(srcs.map(async src => {
             let res = await Wrapper.get(illness, src);
             if (res) {
                 info.push(res);
             }
-        });
-        await Promise.all(srcs);
+        }));
 
         this.bot.output.addDebug(Object.fromEntries(info.map(({ src, id, name }) => [ src, { id, name } ])));
 
         this.bot.output.addOutput("");
         info.forEach(src => {
-            this.bot.output.addOutput(`${src.src}:`, src.description, `Read more at: ${src.url.join(", ")}\n`);
+            this.bot.output.addOutput(`${src.src}:`, src.description, `Read more at: ${src.url.join(" , ")}\n`);
         });
     }
 
