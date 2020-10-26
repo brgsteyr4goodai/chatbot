@@ -4,6 +4,7 @@
   "description": "4goodai chatbot",
   "main": "index.js",
   "scripts": {
+    "start": "npm run cli",
     "test": "node ./test/index.js",
     "cli": "node ./cli/index.js",
     "dc": "node ./dc/index.js"
