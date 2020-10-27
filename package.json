@@ -2,9 +2,9 @@
   "name": "chatbot",
   "version": "1.0.0",
   "description": "4goodai chatbot",
-  "main": "index.js",
+  "main": "./bot/index.js",
   "scripts": {
-    "start": "npm run cli",
+    "start": "node ./cli/index.js",
     "test": "node ./test/index.js",
     "cli": "node ./cli/index.js",
     "dc": "node ./dc/index.js"
