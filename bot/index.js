@@ -3,6 +3,7 @@ const config = require("./config.json");
 
 const DiseaseProcessor = require("./diseaseProcessor.js");
 const Output = require("./output.js");
+const Flat = require("./cx.flattener.js");
 
 const cmds = {};
 
