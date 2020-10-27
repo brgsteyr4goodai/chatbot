@@ -20,9 +20,9 @@ module.exports = class {
         let pmSymptoms = match.get(msg);
 
         let dfSymptoms = [];
-        if (response.queryResult.parameters.fields.Symptoms !== undefined) {
-            if (response.queryResult.parameters.fields.Symptoms.listValue.values.length > 0) {
-                dfSymptoms = response.queryResult.parameters.fields.Symptoms.listValue.values.map(v => v.stringValue);
+        if (response !== undefined) {
+            if (response.listValue.values.length > 0) {
+                dfSymptoms = response.listValue.values.map(v => v.stringValue);
             }
         }
 
@@ -39,22 +39,13 @@ module.exports = class {
     }
 
     async getDisease() {
-        this.causes = (await Symptoma.get(this.symptoms, config.languageCode.slice(0, 2))).slice(0, config.maxCauses);
+        this.causes = (await Symptoma.get(this.symptoms, config.df.languageCode.slice(0, 2))).slice(0, config.maxCauses);
     }
 
     //------------------------ output
 
-    async getInfoByNumber (response) {
-        if (response.queryResult.parameters.fields.number === undefined) return;
-        let index = response.queryResult.parameters.fields.number.listValue.values[0].numberValue;
+    async getInfoByNumber (index) {
         let illness = this.causes[index-1].name;
-
-        await this.addInfoToOutput(illness);
-    }
-
-    async getInfoByName (response) {
-        if (response.queryResult.parameters.fields.illness === undefined) return;
-        let illness = response.queryResult.parameters.fields.illness.stringValue;
 
         await this.addInfoToOutput(illness);
     }
@@ -77,7 +68,6 @@ module.exports = class {
     }
 
     logSymptomsAndCauses () {
-        this.bot.output.addOutput("Running a diagnose...");
         this.bot.output.addDebug("Symptoms:", this.symptoms);
         this.bot.output.addOutput("Possible causes: "+this.causes.map(({ name }) => name).join(", "));
     }

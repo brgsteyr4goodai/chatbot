@@ -1,36 +1,35 @@
-require("./doc/type.js")
-
-const DialogFlow = require("@google-cloud/dialogflow");
-const uuid = require('uuid');
+const DialogFlow = require("@google-cloud/dialogflow-cx");
 const config = require("./config.json");
 
 const DiseaseProcessor = require("./diseaseProcessor.js");
 const Output = require("./output.js");
+const Flat = require("./cx.flattener.js");
 
-const cmds = {
-
-}
+const cmds = {};
 
 class Bot {
-    constructor() {
+    constructor () {
         this.client = new DialogFlow.SessionsClient({
-            keyFilename : `${__dirname}/credentials/df.json`
+            keyFilename : `${__dirname}/credentials/cx.json`
         });
-        this.sessionId = uuid.v4();
-        this.path = this.client.projectAgentSessionPath(config.projectID, this.sessionId);
 
+        this.sessionId = Math.random().toString(36).substring(7);
+        this.path = this.client.projectLocationAgentSessionPath(
+            config.df.projectID,
+            config.df.location,
+            config.df.agentId,
+            this.sessionId
+        );
+
+        this.output = undefined;
         this.instance();
     }
 
-    //---------------------------- main
-
-    /**
-     * @param text {String}
-     */
-    async message(text) {
+    async message (text) {
         if (!text || typeof text !== "string") text = " ";
 
         this.output = new Output();
+        let query = this.createQuery([text]);
 
         if (text.slice(0, config.prefix.length) === config.prefix) {
             let [ cmd, ...args ] = text.slice(1).split(" ");
@@ -38,74 +37,66 @@ class Bot {
             return this.output;
         }
 
-        //query dialogflow
-        let query = this.createQuery(text);
-        let [ response ] = await this.client.detectIntent(query);
-        if (response.queryResult.fulfillmentText !== undefined && response.queryResult.fulfillmentText !== "" && response.queryResult.fulfillmentText !== " ") {
-            this.output.addDf(response.queryResult.fulfillmentText);
-        }
+        let [response] = await this.client.detectIntent(query);
+        this.output.addDf(response.queryResult.responseMessages.map(m => m.text.text).join("\n"))
 
-        //pass intent to local function
-        let parsed = response.queryResult.intent.displayName.split(":");
-        if (parsed[0] in this) {
-            await this[parsed[0]](parsed[1], { response, query, text: text });
+        let flowName = Flat.executionFlat(response.queryResult)[0]["Step 1"].InitialState.FlowState.Name;
+        if (flowName in this) {
+            await this[flowName]({
+                page : response.queryResult.currentPage.displayName,
+                intent: response.queryResult.match.intent ? response.queryResult.match.intent.displayName : "",
+                response,
+                output: this.output,
+                query,
+                text
+            });
         }
 
         return this.output;
     }
 
     instance () {
-        //create necessary instance of other match here
-
         this.diseaseProcessor = new DiseaseProcessor(this);
     }
 
-    /**
-     * @param {string} text
-     * @returns {queryObject}
-     */
     createQuery(text) {
         return {
             session: this.path,
             queryInput: {
                 text: {
-                    text,
-                    languageCode: config.languageCode
-                }
+                    text
+                },
+                languageCode: config.df.languageCode
             }
         };
     }
 
-    //---------------------------- intent_classes
+    //--------------------------------------
 
-    /**
-     * @param {string} mode
-     * @param {interIO} data
-     */
-    async symptom2 (mode, data) {
-        switch (mode) {
-            case "init":
-            case "add":
-                await this.diseaseProcessor.message(data.text, data.response);
+    async symptom (data) {
+        data.response.queryResult.parameters.fields;
+
+        switch (data.intent) {
+            case "symptom:add":
+                await this.diseaseProcessor.message(data.text, data.response.queryResult.parameters.fields.symptom);
                 break;
-            case "diagnose":
+            case "symptom:numberSelector":
+                await this.diseaseProcessor.getInfoByNumber(data.response.queryResult.parameters.fields.number.numberValue)
+                break;
+        }
+
+        switch (data.page) {
+            case "syp:selector":
                 await this.diseaseProcessor.getDisease();
-                await this.diseaseProcessor.logSymptomsAndCauses();
-                break;
-            case "postDiagnoseNum":
-                await this.diseaseProcessor.getInfoByNumber(data.response);
+                this.diseaseProcessor.logSymptomsAndCauses();
                 break;
         }
     }
 
-    /**
-     * @param {string} mode
-     * @param {interIO} data
-     */
-    async cancerinfo (mode, data) {
-        switch (mode) {
-            case "init":
-                await this.diseaseProcessor.getInfoByName(data.response);
+    async ["Default Start Flow"] (data) {
+        switch (data.intent) {
+            case "info:start":
+                await this.diseaseProcessor.addInfoToOutput(data.response.queryResult.parameters.fields.any.stringValue)
                 break;
         }
     }

@@ -1,5 +1,5 @@
 {
-    "debug": true,
+    "debug": false,
     "prefix": ".",
     "botname": "fgGreen",
     "bottext": "reset",
