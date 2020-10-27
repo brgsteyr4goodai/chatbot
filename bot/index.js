@@ -48,7 +48,7 @@ class Bot {
         //pass intent to local function
         let parsed = response.queryResult.intent.displayName.split(":");
         if (parsed[0] in this) {
-            await this[parsed[0]](parsed[1], { response, query, text: text })
+            await this[parsed[0]](parsed[1], { response, query, text: text });
         }
 
         return this.output;
@@ -105,7 +105,7 @@ class Bot {
     async cancerinfo (mode, data) {
         switch (mode) {
             case "init":
-                await this.diseaseProcessor.getInfoByName(data.response)
+                await this.diseaseProcessor.getInfoByName(data.response);
                 break;
         }
     }
