@@ -8,7 +8,6 @@
 [![Lines](https://img.shields.io/tokei/lines/github/brgsteyr4goodai/chatbot)]()
 [![Dependency](https://img.shields.io/github/package-json/dependency-version/brgsteyr4goodai/chatbot/@google-cloud/dialogflow)](https://www.npmjs.com/package/@google-cloud/dialogflow)
 [![Dependency](https://img.shields.io/github/package-json/dependency-version/brgsteyr4goodai/chatbot/discord.js)](https://www.npmjs.com/package/discord.js)
-[![Dependency](https://img.shields.io/github/package-json/dependency-version/brgsteyr4goodai/chatbot/uuid)](https://www.npmjs.com/package/uuid)
 
 
 ## Working principle of bot

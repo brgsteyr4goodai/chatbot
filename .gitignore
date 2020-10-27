@@ -7,4 +7,4 @@ dc/token.txt
 .vscode
 .idea
 bot/credentials/key.json
-bot/credentials/key.json
+bot/credentials/cx.json

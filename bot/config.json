@@ -1,7 +1,11 @@
 {
     "prefix": "#",
-    "projectID" : "test-agent-xx99",
-    "languageCode" : "en-US",
+    "df" : {
+        "projectID" : "centered-cursor-293721",
+        "location" : "global",
+        "agentId" : "c9d74353-daa7-41f8-a5c9-2a6b6fa8ca32",
+        "languageCode" : "en"
+    },
     "useDF": true,
     "usePM": true,
     "maxCauses": 3,
