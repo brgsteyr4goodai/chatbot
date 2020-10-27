@@ -5,6 +5,13 @@ const config = require("../config.json");
 
 module.exports = async name => {
     let res = await Wikipedia.search(name);
+
+    console.log(res.query.searchinfo)
+
+    if (res.query.searchinfo.totalhits === 0) {
+        return;
+    }
+
     let id = Wikipedia.getId(res);
     let article = Wikipedia.getPage(await Wikipedia.article(id));
     let extract = Wikipedia.getPage(await Wikipedia.extract(id));
