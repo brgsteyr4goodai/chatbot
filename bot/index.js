@@ -37,12 +37,17 @@ class Bot {
         }
 
         let [response] = await this.client.detectIntent(query);
-
         output.addDf(response.queryResult.responseMessages.map(m => m.text.text).join("\n"))
 
+        let flowName = Flat.executionFlat(response.queryResult)[0]["Step 1"].InitialState.FlowState.Name;
+        output.addDebug("Currently in "+flowName);
+
         if (response.queryResult.match.intent) {
-            if (response.queryResult.match.intent.displayName in this) {
-                this[response.queryResult.match.intent.displayName](response, output, query, text);
+            output.addDebug("\nIntent: "+response.queryResult.match.intent.displayName);
+            let parsed = response.queryResult.match.intent.displayName.split(":");
+
+            if (parsed[0] in this) {
+                this[parsed[0]](parsed[1], response, output, query, text);
             }
         } else {
             output.addOutput("An internal error occurred.");
@@ -69,9 +74,14 @@ class Bot {
 
     //--------------------------------------
 
-    test_intent (response, output) {
-        output.addOutput("intent called: "+response.queryResult.match.intent.displayName);
+    async symptom (mode, response, output) {
+        switch (mode) {
+            case "add":
+
+                break;
+        }
     }
+
 }
 
 module.exports = Bot;
