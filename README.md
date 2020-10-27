@@ -6,9 +6,10 @@
 [![Size](https://img.shields.io/github/languages/top/brgsteyr4goodai/chatbot)]()
 [![Size](https://img.shields.io/github/repo-size/brgsteyr4goodai/chatbot)]()
 [![Lines](https://img.shields.io/tokei/lines/github/brgsteyr4goodai/chatbot)]()
-[![Dependency](https://img.shields.io/github/package-json/dependency-version/brgsteyr4goodai/chatbot/@google-cloud/dialogflow)](https://www.npmjs.com/package/@google-cloud/dialogflow)
+[![Dependency](https://img.shields.io/github/package-json/dependency-version/brgsteyr4goodai/chatbot/@google-cloud/dialogflow-cx)](https://www.npmjs.com/package/@google-cloud/dialogflow-cx)
 [![Dependency](https://img.shields.io/github/package-json/dependency-version/brgsteyr4goodai/chatbot/discord.js)](https://www.npmjs.com/package/discord.js)
-
+[![GitHub language count](https://img.shields.io/github/languages/count/brgsteyr4goodai/chatbot)]()
+[![GitHub contributors](https://img.shields.io/github/contributors/brgsteyr4goodai/chatbot)]()
 
 ## Working principle of bot
 ![Diagram](https://raw.githubusercontent.com/brgsteyr4goodai/chatbot/main/assets/diagram.svg)
