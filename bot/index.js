@@ -103,16 +103,3 @@ class Bot {
 }
 
 module.exports = Bot;
-
-/*output.addDebug("Currently in "+flowName);
-
-        if (response.queryResult.match.intent) {
-            output.addDebug("\nIntent: "+response.queryResult.match.intent.displayName);
-            let parsed = response.queryResult.match.intent.displayName.split(":");
-
-            if (parsed[0] in this) {
-                this[parsed[0]](parsed[1], response, output, query, text);
-            }
-        } else {
-            output.addOutput("An internal error occurred.");
-        }*/

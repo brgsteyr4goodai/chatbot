@@ -68,14 +68,7 @@ module.exports = class {
     }
 
     logSymptomsAndCauses () {
-        //this.bot.output.addOutput("Running a diagnose...");
         this.bot.output.addDebug("Symptoms:", this.symptoms);
         this.bot.output.addOutput("Possible causes: "+this.causes.map(({ name }) => name).join(", "));
     }
 }
-
-/*
-symptom
-synonym
-next
- */
