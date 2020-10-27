@@ -21,13 +21,14 @@ class Bot {
             this.sessionId
         );
 
+        this.output = undefined;
         this.instance();
     }
 
     async message (text) {
         if (!text || typeof text !== "string") text = " ";
 
-        let output = new Output();
+        this.output = new Output();
         let query = this.createQuery([text]);
 
         if (text.slice(0, config.prefix.length) === config.prefix) {
@@ -37,23 +38,21 @@ class Bot {
         }
 
         let [response] = await this.client.detectIntent(query);
-        output.addDf(response.queryResult.responseMessages.map(m => m.text.text).join("\n"))
+        this.output.addDf(response.queryResult.responseMessages.map(m => m.text.text).join("\n"))
 
         let flowName = Flat.executionFlat(response.queryResult)[0]["Step 1"].InitialState.FlowState.Name;
-        output.addDebug("Currently in "+flowName);
-
-        if (response.queryResult.match.intent) {
-            output.addDebug("\nIntent: "+response.queryResult.match.intent.displayName);
-            let parsed = response.queryResult.match.intent.displayName.split(":");
-
-            if (parsed[0] in this) {
-                this[parsed[0]](parsed[1], response, output, query, text);
-            }
-        } else {
-            output.addOutput("An internal error occurred.");
+        if (flowName in this) {
+            await this[flowName]({
+                page : response.queryResult.currentPage.displayName,
+                intent: response.queryResult.match.intent ? response.queryResult.match.intent.displayName : "",
+                response,
+                output: this.output,
+                query,
+                text
+            });
         }
 
-        return output;
+        return this.output;
     }
 
     instance () {
@@ -74,14 +73,46 @@ class Bot {
 
     //--------------------------------------
 
-    async symptom (mode, response, output) {
-        switch (mode) {
-            case "add":
+    async symptom (data) {
+        data.response.queryResult.parameters.fields;
 
+        switch (data.intent) {
+            case "symptom:add":
+                await this.diseaseProcessor.message(data.text, data.response.queryResult.parameters.fields.symptom);
+                break;
+            case "symptom:numberSelector":
+                await this.diseaseProcessor.getInfoByNumber(data.response.queryResult.parameters.fields.number.numberValue)
+                break;
+        }
+
+        switch (data.page) {
+            case "syp:selector":
+                await this.diseaseProcessor.getDisease();
+                this.diseaseProcessor.logSymptomsAndCauses();
                 break;
         }
     }
 
+    async ["Default Start Flow"] (data) {
+        switch (data.intent) {
+            case "info:start":
+                await this.diseaseProcessor.addInfoToOutput(data.response.queryResult.parameters.fields.any.stringValue)
+                break;
+        }
+    }
 }
 
 module.exports = Bot;
+
+/*output.addDebug("Currently in "+flowName);
+
+        if (response.queryResult.match.intent) {
+            output.addDebug("\nIntent: "+response.queryResult.match.intent.displayName);
+            let parsed = response.queryResult.match.intent.displayName.split(":");
+
+            if (parsed[0] in this) {
+                this[parsed[0]](parsed[1], response, output, query, text);
+            }
+        } else {
+            output.addOutput("An internal error occurred.");
+        }*/
