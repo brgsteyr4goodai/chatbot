@@ -97,6 +97,7 @@ class Bot {
     async ["Default Start Flow"] (data) {
         switch (data.intent) {
             case "info:start":
+                if (!data.response.queryResult.parameters.fields.any.stringValue) return;
                 await this.diseaseProcessor.addInfoToOutput(data.response.queryResult.parameters.fields.any.stringValue)
                 break;
         }
