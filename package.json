@@ -1,7 +1,7 @@
 {
-  "name": "chatbot",
+  "name": "wilson",
   "version": "1.0.0",
-  "description": "4goodai chatbot",
+  "description": "wilson",
   "main": "./bot/index.js",
   "scripts": {
     "start": "node ./cli/index.js",
@@ -11,10 +11,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/brgsteyr4goodai/chatbot.git"
+    "url": "git+https://github.com/hiubok/wilson.git"
   },
   "keywords": [
-    "chatbot"
+    "wilson",
+    "chatbot",
+    "nlp",
+    "dialogflow"
   ],
   "author": "Oliver Kovacs",
   "contributors": [
@@ -24,7 +27,9 @@
       "url": "https://github.com/OliverKovacs"
     },
     {
-      "name": "Ulrich Barnstedt"
+      "name": "Ulrich Barnstedt",
+      "email": "0x81.dev@gmail.com",
+      "url": "https://github.com/ulrich-barnstedt"
     },
     {
       "name": "Hanna Inselsbacher"
@@ -32,11 +37,14 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/brgsteyr4goodai/chatbot/issues"
+    "url": "https://github.com/hiubok/wilson/issues"
   },
-  "homepage": "https://github.com/brgsteyr4goodai/chatbot#readme",
+  "homepage": "https://github.com/hiubok/wilson#readme",
   "dependencies": {
     "@google-cloud/dialogflow-cx": "^1.1.0",
     "discord.js": "^12.3.1"
+  },
+  "publishConfig": {
+    "registry":"https://npm.pkg.github.com"
   }
 }
