@@ -6,7 +6,7 @@ const config = require("../config.json");
 module.exports = async name => {
     let res = await Wikipedia.search(name);
 
-    console.log(res.query.searchinfo)
+    // TODO: fix res.query undefined
 
     if (res.query.searchinfo.totalhits === 0) {
         return;
