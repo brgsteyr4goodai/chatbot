@@ -6,7 +6,14 @@ const config = require("../config.json");
 module.exports = async name => {
     let res = await Wikipedia.search(name);
 
-    // TODO: fix res.query undefined
+    if (!res) {
+        return;
+    }
+
+    if (res.error) {
+        console.error(`ERR: ${res.error.code} (@bot/srcs/wikipedia.js)`);
+        return;
+    }
 
     if (res.query.searchinfo.totalhits === 0) {
         return;

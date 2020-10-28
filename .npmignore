@@ -1,0 +1,13 @@
+.npmrc
+
+.vs
+.vscode
+.idea
+
+.docker
+cli
+dc
+.replit
+dockerrun.bat
+
+bot/credentials/key.json
