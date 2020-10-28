@@ -74,7 +74,15 @@ class Bot {
     //--------------------------------------
 
     async symptom (data) {
-        data.response.queryResult.parameters.fields;
+        switch (data.page) {
+            case "syp:selector":
+                if (data.intent === "") return;
+                await this.diseaseProcessor.getDisease();
+                this.diseaseProcessor.logSymptomsAndCauses();
+                break;
+        }
+
+        if (!data.response.queryResult.parameters) return;
 
         switch (data.intent) {
             case "symptom:add":
@@ -82,13 +90,6 @@ class Bot {
                 break;
             case "symptom:numberSelector":
                 await this.diseaseProcessor.getInfoByNumber(data.response.queryResult.parameters.fields.number.numberValue)
-                break;
-        }
-
-        switch (data.page) {
-            case "syp:selector":
-                await this.diseaseProcessor.getDisease();
-                this.diseaseProcessor.logSymptomsAndCauses();
                 break;
         }
     }
