@@ -11,24 +11,55 @@
 [![Dependency](https://img.shields.io/github/package-json/dependency-version/hiubok/wilson/discord.js)](https://www.npmjs.com/package/discord.js)
 [![GitHub contributors](https://img.shields.io/github/contributors/hiubok/wilson)]()
 
-## Run
+Wilson is a chatbot that can diagnose you based on your symptoms and give you information on illnesses.
 
-### Repl:
-Go to https://repl.it/@OliverKovacs/wilson#README.md  
-Click `run`
-
-### Local:
-
-
-
-## Working principle of bot
-![Diagram](https://raw.githubusercontent.com/hiubok/wilson/main/assets/diagram.svg)
-
-<br />
+Wilson uses DialogFlow for natural language processing (NLP), Symptoma for the diagnosis and the WHOs International Classification of Diseases (ICD) and Wikipedia as sources.
+It is written in JavaScript and can be run online in Repl, local with Node.js or in a Docker container.
 
 ---
 
-## Languages and Tools
+## Table of contents
+
+- [Run](#run)
+- [Details](#details)
+- [Languages and Tech](#languages-and-tech)
+- [Demo](#demo)
+- [Authors](#authors)
+- [Roadmap](#roadmap)
+- [Disclaimer](#disclaimer)
+- [Legal notice](#legal-notice)
+
+
+## Run
+The bot can be run in a variety of environments with different frontends.
+
+### Running in Repl:
+Go to https://repl.it/@OliverKovacs/wilson#README.md  
+Click `run`
+
+### Running locally:
+Clone the repo at https://github.com/hiubok/wilson.git
+Open a terminal in the cloned repo
+Run the command `npm install`
+Start the bot with `npm run cli`
+
+
+## Details
+Details on how the bot works.
+
+### General working principle
+The diagram below demonstrates how the bot processes input and how it obtains relevant data.
+![Diagram](https://raw.githubusercontent.com/hiubok/wilson/main/assets/diagram.svg)
+
+### Frontends
+The bot itself is a separate module, which can have multiple frontends.  
+The command line interface for example is a frontend for the bot (see [run](#run) on how to start it), but frontends can be built for any platform.  
+An example also provided in the repo is a discord integration, which allows the bot to run as an discord bot. It can be run with `npm run dc` (after putting a valid discord token in `/dc/token.txt`).
+
+
+## Languages and tech
+The bot itself is written completely in javascript, plus some configuration in DialogFlow.
+We used these technologies to create the bot (click on an icon for more info):
 
 [<img align="left" alt="JavaScript" width="28px" src="./assets/icons/javascript.svg" />]()
 [<img align="left" alt="Dialogflow" width="28px" src="./assets/icons/dialogflow.svg" />](https://cloud.google.com/dialogflow)
@@ -43,10 +74,12 @@ Click `run`
 [<img align="left" alt="Visual Studio Code" width="28px" src="https://raw.githubusercontent.com/vscode-icons/vscode-icons/master/icons/file_type_vscode.svg" />](https://code.visualstudio.com/)
 [<img align="left" alt="Webstorm" width="28px" src="./assets/icons/webstorm.png" />](https://www.jetbrains.com/webstorm/)
 
-<br />
-<br />
 
----
+## Demo
+A demonstration of the bot working in the commandline interface:
+
+TODO: insert GIF here.
+
 
 ## Authors
 - Oliver Kovacs
@@ -57,9 +90,17 @@ Click `run`
     - [Email](mailto:0x81.dev@gmail.com)
 - Hanna Inselsbacher
 
-<br />
 
----
+## Roadmap
+- Add further dialogues to DialogFlow
+- Create integrations for other platforms apart from discord
+- Add further sources for researching info on illnesses
+- Create support for other languages than english
+
+
+## Disclaimer
+The bot does not replace an actual diagnose by a certified medical professional, and replies and diagnoses may be inaccurate.  
+Do NOT rely on the data provided by the bot for real world use, this is a work in progress, proof-of-concept project.
 
 ## Legal Notice
 

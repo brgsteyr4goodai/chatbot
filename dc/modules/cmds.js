@@ -61,7 +61,7 @@ module.exports = class {
             .setTitle("Chatbot 4goodai")
             .setDescription("Developed for https://www.ada.wien/hackathon-fur-gute-ki-4goodai-2020/")
             .addField("Contributors", contributors.map(({ name }) => name).join("\n"))
-            .addField("Technologies used", ["[Discord.js](https://discord.js.org/#/)", "..."].join("\n"))
+            //.addField("Technologies used", ["[Discord.js](https://discord.js.org/#/)", "..."].join("\n"))
             .setFooter(client.user.tag, client.user.displayAvatarURL())
 
         msg.channel.send(embed);
