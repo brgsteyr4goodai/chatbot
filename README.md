@@ -16,6 +16,8 @@ Wilson is a chatbot that can diagnose you based on your symptoms and give you in
 Wilson uses DialogFlow for natural language processing (NLP), Symptoma for the diagnosis and the WHOs International Classification of Diseases (ICD) and Wikipedia as sources.
 It is written in JavaScript and can be run online in Repl, local with Node.js or in a Docker container.
 
+>> GIF goes here
+
 ---
 
 ## Table of contents
@@ -23,7 +25,6 @@ It is written in JavaScript and can be run online in Repl, local with Node.js or
 - [Run](#run)
 - [Details](#details)
 - [Languages and Tech](#languages-and-tech)
-- [Demo](#demo)
 - [Authors](#authors)
 - [Roadmap](#roadmap)
 - [Disclaimer](#disclaimer)
@@ -74,12 +75,6 @@ We used these technologies to create the bot (click on an icon for more info):
 [<img align="left" alt="Visual Studio Code" width="28px" src="https://raw.githubusercontent.com/vscode-icons/vscode-icons/master/icons/file_type_vscode.svg" />](https://code.visualstudio.com/)
 [<img align="left" alt="Webstorm" width="28px" src="./assets/icons/webstorm.png" />](https://www.jetbrains.com/webstorm/)
 <br />
-
-
-## Demo
-A demonstration of the bot working in the commandline interface:
-
-TODO: insert GIF here.
 
 
 ## Authors
