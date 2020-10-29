@@ -38,9 +38,9 @@ Go to https://repl.it/@OliverKovacs/wilson#README.md
 Click `run`
 
 ### Running locally:
-Clone the repo at https://github.com/hiubok/wilson.git
-Open a terminal in the cloned repo
-Run the command `npm install`
+Clone the repo at https://github.com/hiubok/wilson.git  
+Open a terminal in the cloned repo  
+Run the command `npm install`  
 Start the bot with `npm run cli`
 
 
@@ -73,6 +73,7 @@ We used these technologies to create the bot (click on an icon for more info):
 [<img align="left" alt="npm" width="28px" src="./assets/icons/docker.svg" />](https://www.docker.com/)
 [<img align="left" alt="Visual Studio Code" width="28px" src="https://raw.githubusercontent.com/vscode-icons/vscode-icons/master/icons/file_type_vscode.svg" />](https://code.visualstudio.com/)
 [<img align="left" alt="Webstorm" width="28px" src="./assets/icons/webstorm.png" />](https://www.jetbrains.com/webstorm/)
+<br />
 
 
 ## Demo
