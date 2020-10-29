@@ -1,5 +1,5 @@
 {
-  "name": "wilson",
+  "name": "@hiubok/wilson",
   "version": "1.0.0",
   "description": "wilson",
   "main": "./bot/index.js",

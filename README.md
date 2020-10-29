@@ -1,18 +1,28 @@
-# Chatbot
+# Wilson
 
-[![Run on Repl.it](https://repl.it/badge/github/brgsteyr4goodai/chatbot)](https://repl.it/@OliverKovacs/chatbot#README.md)
+[![Run on Repl.it](https://repl.it/badge/github/hiubok/wilson)](https://repl.it/@OliverKovacs/wilson#README.md)
 [![Discord](https://img.shields.io/discord/766705105491722252)](https://discord.gg/vV4PUad)
-[![License](https://img.shields.io/github/license/brgsteyr4goodai/chatbot)](https://github.com/brgsteyr4goodai/chatbot/blob/main/LICENSE.md)
-[![Size](https://img.shields.io/github/languages/top/brgsteyr4goodai/chatbot)]()
-[![Size](https://img.shields.io/github/repo-size/brgsteyr4goodai/chatbot)]()
-[![Lines](https://img.shields.io/tokei/lines/github/brgsteyr4goodai/chatbot)]()
-[![Dependency](https://img.shields.io/github/package-json/dependency-version/brgsteyr4goodai/chatbot/@google-cloud/dialogflow-cx)](https://www.npmjs.com/package/@google-cloud/dialogflow-cx)
-[![Dependency](https://img.shields.io/github/package-json/dependency-version/brgsteyr4goodai/chatbot/discord.js)](https://www.npmjs.com/package/discord.js)
-[![GitHub language count](https://img.shields.io/github/languages/count/brgsteyr4goodai/chatbot)]()
-[![GitHub contributors](https://img.shields.io/github/contributors/brgsteyr4goodai/chatbot)]()
+[![License](https://img.shields.io/github/license/hiubok/wilson)](https://github.com/hiubok/wilson/blob/main/LICENSE.md)
+[![GitHub language count](https://img.shields.io/github/languages/count/hiubok/wilson)]()
+[![GitHub top language](https://img.shields.io/github/languages/top/hiubok/wilson)]()
+[![Size](https://img.shields.io/github/repo-size/hiubok/wilson)]()
+[![Lines](https://img.shields.io/tokei/lines/github/hiubok/wilson)]()
+[![Dependency](https://img.shields.io/github/package-json/dependency-version/hiubok/wilson/@google-cloud/dialogflow-cx)](https://www.npmjs.com/package/@google-cloud/dialogflow-cx)
+[![Dependency](https://img.shields.io/github/package-json/dependency-version/hiubok/wilson/discord.js)](https://www.npmjs.com/package/discord.js)
+[![GitHub contributors](https://img.shields.io/github/contributors/hiubok/wilson)]()
+
+## Run
+
+### Repl:
+Go to https://repl.it/@OliverKovacs/wilson#README.md  
+Click `run`
+
+### Local:
+
+
 
 ## Working principle of bot
-![Diagram](https://raw.githubusercontent.com/brgsteyr4goodai/chatbot/main/assets/diagram.svg)
+![Diagram](https://raw.githubusercontent.com/hiubok/wilson/main/assets/diagram.svg)
 
 <br />
 
