@@ -1,9 +1,13 @@
 const config = require("./config.json");
 
 /**
- * @typedef {Class} Output
+ * Output class
  */
-module.exports = class {
+class Output {
+    /**
+     * @private
+     * @returns {exports}
+     */
     constructor() {
         this.out = [];
         this.df = [];
@@ -11,20 +15,32 @@ module.exports = class {
         return this;
     }
 
+    /**
+     * @private
+     */
     addOutput (...args) {
         this.out.push(...args);
         return this;
     }
 
+    /**
+     * @private
+     */
     dfIO (...args) {
         this.df.push(...args);
     }
 
+    /**
+     * @private
+     */
     addDf (...args) {
         this.dfIO(...args);
         return this;
     }
 
+    /**
+     * @private
+     */
     addDebug (...args) {
         if (config.debug) {
             this.debug.push(...args);
@@ -32,10 +48,18 @@ module.exports = class {
         return this;
     }
 
+    /**
+     * Get the output in an object
+     * @returns {{df: string[], debug: string[], out: string[]}}
+     */
     get object () {
         return this.convert();
     }
 
+    /**
+     * Get the output in an object
+     * @returns {{df: string[], debug: string[], out: string[]}}
+     */
     convert () {
         return {
             df : this.df,
@@ -44,3 +68,8 @@ module.exports = class {
         }
     }
 }
+
+/**
+ * Exports
+ */
+module.exports = Output;

@@ -7,10 +7,19 @@ const Flat = require("./cx.flattener.js");
 
 const cmds = {};
 
+/**
+ * Main Bot class
+ */
 class Bot {
-    constructor () {
+    /**
+     * Initialize a new instance
+     * @param {string} [credentialsPath] Absolute path to file with credentials
+     */
+    constructor (credentialsPath) {
+        if (!credentialsPath) credentialsPath = `${__dirname}/credentials/cx.json`;
+
         this.client = new DialogFlow.SessionsClient({
-            keyFilename : `${__dirname}/credentials/cx.json`
+            keyFilename : credentialsPath
         });
 
         this.sessionId = Math.random().toString(36).substring(7);
@@ -25,6 +34,11 @@ class Bot {
         this.instance();
     }
 
+    /**
+     * Main function for processing text
+     * @param {string} text The message from the user
+     * @returns {Promise<Output>}
+     */
     async message (text) {
         if (!text || typeof text !== "string") text = " ";
 
@@ -55,10 +69,16 @@ class Bot {
         return this.output;
     }
 
+    /**
+     * @private
+     */
     instance () {
         this.diseaseProcessor = new DiseaseProcessor(this);
     }
 
+    /**
+     * @private
+     */
     createQuery(text) {
         return {
             session: this.path,
@@ -73,6 +93,9 @@ class Bot {
 
     //--------------------------------------
 
+    /**
+     * @private
+     */
     async symptom (data) {
         switch (data.page) {
             case "syp:selector":
@@ -94,6 +117,9 @@ class Bot {
         }
     }
 
+    /**
+     * @private
+     */
     async ["Default Start Flow"] (data) {
         switch (data.intent) {
             case "info:start":
@@ -104,4 +130,7 @@ class Bot {
     }
 }
 
+/**
+ * Exports
+ */
 module.exports = Bot;
