@@ -82,7 +82,7 @@ An example also provided in the repo is a discord integration, which allows the 
 
 
 ## Languages and tech
-The bot itself is written completely in javascript, plus some configuration in Dialogflow.
+The bot itself is written completely in JavaScript, plus some configuration in Dialogflow.
 We used these technologies to create the bot (click on an icon for more info):
 
 [<img align="left" alt="JavaScript" width="28px" src="./assets/icons/javascript.svg" />]()
@@ -104,6 +104,14 @@ Wilson uses [Symptoma](https://www.symptoma.com/en/about) to give you a diagnosi
 It uses the [World Health Organizations (WHO)](https://www.who.int/) [International Classification of Diseases (ICD-11)](https://www.who.int/classifications/icd/en/) and [Wikipedia](https://www.wikipedia.org/) to give you information on illnesses.  
 These sources can be removed, changed or extended.
 
+[<img align="left" alt="Symptoma" height="48px" src="./assets/sources/symptoma.svg" />](https://www.symptoma.com/en/about)
+[<img align="left" alt="Wikipedia" height="48px" src="./assets/sources/who.svg" />](https://www.who.int/)
+[<img align="left" alt="Wikipedia" height="48px" src="./assets/sources/wikipedia.svg" />](https://www.wikipedia.org/)
+
+<br />
+<br />
+<br />
+
 ## Authors
 - Oliver Kovacs
     - [Github](https://github.com/OliverKovacs)
@@ -116,7 +124,7 @@ These sources can be removed, changed or extended.
 
 ## Roadmap
 - Add further dialogues to Dialogflow
-- Create integrations for other platforms apart from discord
+- Create integrations for other platforms apart from Discord
 - Add further sources for researching info on illnesses
 - Create support for other languages than English
 
