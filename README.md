@@ -58,7 +58,7 @@ npm start
 
 ### Running with [Docker](https://www.docker.com/)
 Download the repo as mentioned above, in the directory run:  
-On windows:
+On Windows: (also start Docker Desktop)
 ```
 ./dockerrun.bat
 ```
@@ -66,7 +66,7 @@ On Linux:
 ```
 sudo sh ./dockerrun.sh
 ```
-This could take some time if you run it for the first time.  
+This could take a few minutes if you run it for the first time.  
 
 ## Details
 Details on how the bot works.

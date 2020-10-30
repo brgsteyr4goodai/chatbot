@@ -3,7 +3,7 @@
 FROM node:current-slim
 
 # Set the working directory.
-WORKDIR /workspaces/chatbot
+WORKDIR /workspaces/wilson
 
 # Copy the file from your host to your current location.
 COPY package.json .
