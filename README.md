@@ -13,10 +13,10 @@
 
 Wilson is a chatbot that can diagnose you based on your symptoms and give you information on illnesses.
 
-Wilson uses DialogFlow for natural language processing (NLP), Symptoma for the diagnosis and the WHOs International Classification of Diseases (ICD) and Wikipedia as sources.
-It is written in JavaScript and can be run online in Repl, local with Node.js or in a Docker container.
+Wilson uses Dialogflow for natural language processing (NLP), Symptoma for the diagnosis and the WHOs International Classification of Diseases (ICD) and Wikipedia as sources.
+It is written in JavaScript and can be run online in Repl, locally with Node.js or in a Docker container.
 
->> GIF goes here
+> GIF goes here
 
 ---
 
@@ -25,6 +25,7 @@ It is written in JavaScript and can be run online in Repl, local with Node.js or
 - [Run](#run)
 - [Details](#details)
 - [Languages and Tech](#languages-and-tech)
+- [Sources](#sources)
 - [Authors](#authors)
 - [Roadmap](#roadmap)
 - [Disclaimer](#disclaimer)
@@ -36,14 +37,36 @@ The bot can be run in a variety of environments with different frontends.
 
 ### Running in Repl:
 Go to https://repl.it/@OliverKovacs/wilson#README.md  
-Click `run`
+Click `Run`
 
 ### Running locally:
-Clone the repo at https://github.com/hiubok/wilson.git  
-Open a terminal in the cloned repo  
-Run the command `npm install`  
-Start the bot with `npm run cli`
+You need [Node.js](https://nodejs.org/en/) and [npm](https://www.npmjs.com/) installed for this.  
+Clone the repo with [git](https://git-scm.com/)
+```
+git clone https://github.com/hiubok/wilson.git  
+```
+or download as a [zip](https://github.com/hiubok/wilson/archive/main.zip).
 
+Open a terminal in the cloned repo and run the command
+```
+npm install
+```  
+Start the bot with 
+```
+npm start
+```
+
+### Running with [Docker](https://www.docker.com/)
+Download the repo as mentioned above, in the directory run:  
+On windows:
+```
+./dockerrun.bat
+```
+On Linux:
+```
+sudo sh ./dockerrun.sh
+```
+This could take some time if you run it for the first time.  
 
 ## Details
 Details on how the bot works.
@@ -55,11 +78,11 @@ The diagram below demonstrates how the bot processes input and how it obtains re
 ### Frontends
 The bot itself is a separate module, which can have multiple frontends.  
 The command line interface for example is a frontend for the bot (see [run](#run) on how to start it), but frontends can be built for any platform.  
-An example also provided in the repo is a discord integration, which allows the bot to run as an discord bot. It can be run with `npm run dc` (after putting a valid discord token in `/dc/token.txt`).
+An example also provided in the repo is a discord integration, which allows the bot to run as an discord bot. It can be run with `npm run dc` (after putting a valid discord token in `./dc/token.txt`, see more information [here](https://discord.com/developers/docs/intro)).
 
 
 ## Languages and tech
-The bot itself is written completely in javascript, plus some configuration in DialogFlow.
+The bot itself is written completely in javascript, plus some configuration in Dialogflow.
 We used these technologies to create the bot (click on an icon for more info):
 
 [<img align="left" alt="JavaScript" width="28px" src="./assets/icons/javascript.svg" />]()
@@ -76,6 +99,10 @@ We used these technologies to create the bot (click on an icon for more info):
 [<img align="left" alt="Webstorm" width="28px" src="./assets/icons/webstorm.png" />](https://www.jetbrains.com/webstorm/)
 <br />
 
+## Sources
+Wilson uses [Symptoma](https://www.symptoma.com/en/about) to give you a diagnosis based on symptoms.  
+It uses the [World Health Organizations (WHO)](https://www.who.int/) [International Classification of Diseases (ICD-11)](https://www.who.int/classifications/icd/en/) and [Wikipedia](https://www.wikipedia.org/) to give you information on illnesses.  
+These sources can be removed, changed or extended.
 
 ## Authors
 - Oliver Kovacs
@@ -88,10 +115,10 @@ We used these technologies to create the bot (click on an icon for more info):
 
 
 ## Roadmap
-- Add further dialogues to DialogFlow
+- Add further dialogues to Dialogflow
 - Create integrations for other platforms apart from discord
 - Add further sources for researching info on illnesses
-- Create support for other languages than english
+- Create support for other languages than English
 
 
 ## Disclaimer
