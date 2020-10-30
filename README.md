@@ -24,7 +24,7 @@ It is written in JavaScript and can be run online in Repl, locally with Node.js 
 
 - [Run](#run)
 - [Details](#details)
-- [Languages and Tech](#languages-and-tech)
+- [Languages and Technologies](#languages-and-technologies)
 - [Sources](#sources)
 - [Authors](#authors)
 - [Roadmap](#roadmap)
@@ -50,7 +50,7 @@ or download as a [zip](https://github.com/hiubok/wilson/archive/main.zip).
 Open a terminal in the cloned repo and run the command
 ```
 npm install
-```  
+```
 Start the bot with 
 ```
 npm start
@@ -60,7 +60,7 @@ npm start
 Download the repo as mentioned above, in the directory run:  
 On Windows: (also start Docker Desktop)
 ```
-./dockerrun.bat
+dockerrun.bat
 ```
 On Linux:
 ```
@@ -78,10 +78,10 @@ The diagram below demonstrates how the bot processes input and how it obtains re
 ### Frontends
 The bot itself is a separate module, which can have multiple frontends.  
 The command line interface for example is a frontend for the bot (see [run](#run) on how to start it), but frontends can be built for any platform.  
-An example also provided in the repo is a discord integration, which allows the bot to run as an discord bot. It can be run with `npm run dc` (after putting a valid discord token in `./dc/token.txt`, see more information [here](https://discord.com/developers/docs/intro)).
+An example also provided in the repo is a Discord integration, which allows the bot to run as an Discord bot. It can be run with `npm run dc` (after putting a valid Discord token in `./dc/token.txt`, see more information [here](https://discord.com/developers/docs/intro)).
 
 
-## Languages and tech
+## Languages and technologies
 The bot itself is written completely in JavaScript, plus some configuration in Dialogflow.
 We used these technologies to create the bot (click on an icon for more info):
 
