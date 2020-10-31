@@ -16,9 +16,11 @@ Wilson is a chatbot that can diagnose you based on your symptoms and give you in
 Wilson uses Dialogflow for natural language processing (NLP), Symptoma for the diagnosis and the WHOs International Classification of Diseases (ICD) and Wikipedia as sources.
 It is written in JavaScript and can be run online in Repl, locally with Node.js or in a Docker container.
 
+This Project was made for the [2020 #4GoodAI hackathon](https://www.ada.wien/hackathon-fur-gute-ki-4goodai-2020/).
+
 > GIF goes here
 
----
+___
 
 ## Table of contents
 
@@ -43,7 +45,7 @@ Click `Run`
 You need [Node.js](https://nodejs.org/en/) and [npm](https://www.npmjs.com/) installed for this.  
 Clone the repo with [git](https://git-scm.com/)
 ```
-git clone https://github.com/hiubok/wilson.git  
+git clone https://github.com/hiubok/wilson.git
 ```
 or download as a [zip](https://github.com/hiubok/wilson/archive/main.zip).
 
@@ -97,7 +99,8 @@ We used these technologies to create the bot (click on an icon for more info):
 [<img align="left" alt="npm" width="28px" src="./assets/icons/docker.svg" />](https://www.docker.com/)
 [<img align="left" alt="Visual Studio Code" width="28px" src="https://raw.githubusercontent.com/vscode-icons/vscode-icons/master/icons/file_type_vscode.svg" />](https://code.visualstudio.com/)
 [<img align="left" alt="Webstorm" width="28px" src="./assets/icons/webstorm.png" />](https://www.jetbrains.com/webstorm/)
-<br />
+
+&nbsp;
 
 ## Sources
 Wilson uses [Symptoma](https://www.symptoma.com/en/about) to give you a diagnosis based on symptoms.  
@@ -105,12 +108,12 @@ It uses the [World Health Organizations (WHO)](https://www.who.int/) [Internatio
 These sources can be removed, changed or extended.
 
 [<img align="left" alt="Symptoma" height="48px" src="./assets/sources/symptoma.svg" />](https://www.symptoma.com/en/about)
-[<img align="left" alt="Wikipedia" height="48px" src="./assets/sources/who.svg" />](https://www.who.int/)
+[<img align="left" alt="WHO" height="48px" src="./assets/sources/who.svg" />](https://www.who.int/)
 [<img align="left" alt="Wikipedia" height="48px" src="./assets/sources/wikipedia.svg" />](https://www.wikipedia.org/)
 
-<br />
-<br />
-<br />
+&nbsp;
+&nbsp;
+&nbsp;
 
 ## Authors
 - Oliver Kovacs
@@ -120,6 +123,8 @@ These sources can be removed, changed or extended.
     - [Github](https://github.com/ulrich-barnstedt)
     - [Email](mailto:0x81.dev@gmail.com)
 - Hanna Inselsbacher
+    - [Github](https://github.com/h13-in)
+    - [Email](mailto:hanna.inselsbacher@brgsteyr.at)
 
 
 ## Roadmap
