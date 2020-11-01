@@ -45,6 +45,11 @@ module.exports = class {
     //------------------------ output
 
     async getInfoByNumber (index) {
+        if (index < 1 || index > this.causes.length + 1) {
+            this.bot.output.addOutput(`Invalid index: ${index}`);
+            return;
+        }
+
         let illness = this.causes[index-1].name;
 
         await this.addInfoToOutput(illness);

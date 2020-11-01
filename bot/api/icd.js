@@ -39,7 +39,12 @@ class ICD {
                 });
 
                 res.on("end", () => {
-                    resolve(JSON.parse(data.toString()).access_token);
+                    try {
+                        resolve(JSON.parse(data.toString()).access_token);
+                    }
+                    catch(error) {
+                        console.error("ERR", "failed parsing icd res:", data.toString)
+                    }
                 });
             });
     
