@@ -35,6 +35,7 @@ module.exports = class {
     parseOutput (object) {
         switch (object.options.dfObject.intent) {
             case "symptom:numberSelector":
+            case "info:start":
                 return object.options.style.output.map(element => {
                     let obj = {
                         name : element[0]
