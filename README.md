@@ -14,9 +14,11 @@
 Wilson is a chatbot that can diagnose you based on your symptoms and give you information on illnesses.
 
 Wilson uses Dialogflow for natural language processing (NLP), Symptoma for the diagnosis and the WHOs International Classification of Diseases (ICD) and Wikipedia as sources.
-It is written in JavaScript and can be run online in Repl, locally with Node.js or in a Docker container.
+It is written in JavaScript and can be run online in Repl, locally with Node.js or in a Docker container. Wilson also has Discord integration.
 
 This project was made for the [2020 #4GoodAI hackathon](https://www.ada.wien/hackathon-fur-gute-ki-4goodai-2020/).
+
+If you have any questions, problems or suggestions write us an Email or open a GitHub issue.
 
 > GIF goes here
 
@@ -145,7 +147,7 @@ Do NOT rely on the data provided by the bot for real world use, this is a work i
 ## Legal Notice
 
 By using this program you agree to:
-- Dialogflows [terms of service](https://cloud.google.com/dialogflow/docs/terms-trial-edition)
+- Google Cloud Platforms [terms of service](https://cloud.google.com/terms/)
 - Symptomas [terms of service](https://www.symptoma.com/en/terms) and [privacy policy](https://www.symptoma.com/en/privacy)
 - The WHOs [privacy policy](https://www.who.int/about/who-we-are/privacy-policy)
 - The Wikimedia [terms of use](https://foundation.wikimedia.org/wiki/Terms_of_Use/en) and [privacy policy](https://foundation.wikimedia.org/wiki/Privacy_policy)

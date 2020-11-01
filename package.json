@@ -1,7 +1,7 @@
 {
   "name": "@hiubok/wilson",
   "version": "1.0.0",
-  "description": "wilson",
+  "description": "Wilson is a chatbot that can diagnose you based on your symptoms and give you information on illnesses.",
   "main": "./bot/index.js",
   "scripts": {
     "start": "node ./cli/index.js",
@@ -14,9 +14,16 @@
     "url": "git+https://github.com/hiubok/wilson.git"
   },
   "keywords": [
-    "chatbot",
     "nlp",
-    "diagnosis"
+    "chatbot",
+    "diagnosis",
+    "javascript",
+    "nodejs",
+    "dialogflow",
+    "discord",
+    "icd",
+    "repl",
+    "docker"
   ],
   "author": "Oliver Kovacs",
   "contributors": [
