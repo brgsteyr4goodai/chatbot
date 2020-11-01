@@ -6,12 +6,15 @@ const config = require("./config.json");
 class Output {
     /**
      * @private
-     * @returns {exports}
+     * @returns {Output}
      */
     constructor() {
         this.out = [];
         this.df = [];
         this.debug = [];
+
+        this.optionsObject = {};
+
         return this;
     }
 
@@ -26,15 +29,8 @@ class Output {
     /**
      * @private
      */
-    dfIO (...args) {
-        this.df.push(...args);
-    }
-
-    /**
-     * @private
-     */
     addDf (...args) {
-        this.dfIO(...args);
+        this.df.push(...args);
         return this;
     }
 
@@ -46,6 +42,21 @@ class Output {
             this.debug.push(...args);
         }
         return this;
+    }
+
+    /**
+     * Returns object containing functions for modifying options
+     * @type {Object}
+     * @property {function(string, any)} setProperty
+     * @property {function(object)} setDialogflow
+     * @property {function(object)} setStyle
+     */
+    get options () {
+        return {
+            setProperty : (prop, value) => this.optionsObject[prop] = value,
+            setDialogflow : (dfObject) => this.optionsObject.dfObject = dfObject,
+            setStyle : (styleObject) => this.optionsObject.style = styleObject
+        }
     }
 
     /**
@@ -64,7 +75,8 @@ class Output {
         return {
             df : this.df,
             out : this.out,
-            debug : this.debug
+            debug : this.debug,
+            options : this.optionsObject
         }
     }
 }

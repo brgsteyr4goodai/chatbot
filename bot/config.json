@@ -9,7 +9,7 @@
     "useDF": true,
     "usePM": true,
     "maxCauses": 3,
-    "debug" : true,
+    "debug" : false,
     "wikipedia": {
         "maxParagraphs": 1
     }
