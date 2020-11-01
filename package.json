@@ -44,8 +44,7 @@
   "homepage": "https://github.com/hiubok/wilson#readme",
   "dependencies": {
     "@google-cloud/dialogflow-cx": "^1.1.0",
-    "ccord": "^1.3.5",
-    "discord.js": "^12.4.1"
+    "ccord": "^1.3.6"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"

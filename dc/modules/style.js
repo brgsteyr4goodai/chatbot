@@ -1,4 +1,4 @@
-const { MessageEmbed } = require("discord.js");
+const MessageEmbed = require("ccord").Discord.MessageEmbed;
 
 module.exports = class {
     debug (msg, debug) {
