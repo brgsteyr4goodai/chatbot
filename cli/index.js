@@ -37,7 +37,7 @@ class CLI {
                 console.log(format(out.join("\n"), config.bottext));
             }
             if (df.length !== 0) {
-                console.log(`${format("Bot", config.botname)}:`, format(df.join(" "), config.bottext));
+                console.log(`${format(config.name, config.botname)}:`, format(df.join(" "), config.bottext));
             }
         }
 
