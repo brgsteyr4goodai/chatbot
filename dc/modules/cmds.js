@@ -93,10 +93,9 @@ module.exports = class {
 
 
         let embed = new Embed()
-            .setTitle("Discord statistics")
-            .addField("Current bindings", Object.keys(active).length)
+            .addField("Currently active channels", Object.keys(active).length)
             .addField("Available commands", Object.getOwnPropertyNames(Object.getPrototypeOf(this)).filter(e => e !== "constructor").length)
-            .addField("Version", git ? "v" + git : "Not available")
+            .addField("Version", git ? git : "Not available")
 
         msg.channel.send(embed)
     }
