@@ -14,10 +14,9 @@
     "url": "git+https://github.com/hiubok/wilson.git"
   },
   "keywords": [
-    "wilson",
     "chatbot",
     "nlp",
-    "dialogflow"
+    "diagnosis"
   ],
   "author": "Oliver Kovacs",
   "contributors": [

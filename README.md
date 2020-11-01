@@ -1,7 +1,7 @@
 # Wilson
 
 [![Run on Repl.it](https://repl.it/badge/github/hiubok/wilson)](https://repl.it/@OliverKovacs/wilson#README.md)
-[![Discord](https://img.shields.io/discord/766705105491722252)](https://discord.gg/vV4PUad)
+[![Discord](https://img.shields.io/discord/766705105491722252)](https://discord.gg/nsBKy68NUV)
 [![License](https://img.shields.io/github/license/hiubok/wilson)](https://github.com/hiubok/wilson/blob/main/LICENSE.md)
 [![GitHub language count](https://img.shields.io/github/languages/count/hiubok/wilson)]()
 [![GitHub top language](https://img.shields.io/github/languages/top/hiubok/wilson)]()
@@ -16,7 +16,7 @@ Wilson is a chatbot that can diagnose you based on your symptoms and give you in
 Wilson uses Dialogflow for natural language processing (NLP), Symptoma for the diagnosis and the WHOs International Classification of Diseases (ICD) and Wikipedia as sources.
 It is written in JavaScript and can be run online in Repl, locally with Node.js or in a Docker container.
 
-This Project was made for the [2020 #4GoodAI hackathon](https://www.ada.wien/hackathon-fur-gute-ki-4goodai-2020/).
+This project was made for the [2020 #4GoodAI hackathon](https://www.ada.wien/hackathon-fur-gute-ki-4goodai-2020/).
 
 > GIF goes here
 
@@ -68,7 +68,11 @@ On Linux:
 ```
 sudo sh ./dockerrun.sh
 ```
-This could take a few minutes if you run it for the first time.  
+This could take a few minutes if you run it for the first time.
+
+### Try it on Discord
+Join the Wilson Discord server: https://discord.gg/nsBKy68NUV  
+See the #info channel for further info.
 
 ## Details
 Details on how the bot works.
@@ -135,7 +139,7 @@ These sources can be removed, changed or extended.
 
 
 ## Disclaimer
-The bot does not replace an actual diagnose by a certified medical professional, and replies and diagnoses may be inaccurate.  
+The bot does not replace an actual diagnosis by a certified medical professional, and replies and diagnoses may be inaccurate.  
 Do NOT rely on the data provided by the bot for real world use, this is a work in progress, proof-of-concept project.
 
 ## Legal Notice
