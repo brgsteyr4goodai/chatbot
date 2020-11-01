@@ -8,7 +8,6 @@
 [![Size](https://img.shields.io/github/repo-size/hiubok/wilson)]()
 [![Lines](https://img.shields.io/tokei/lines/github/hiubok/wilson)]()
 [![Dependency](https://img.shields.io/github/package-json/dependency-version/hiubok/wilson/@google-cloud/dialogflow-cx)](https://www.npmjs.com/package/@google-cloud/dialogflow-cx)
-[![Dependency](https://img.shields.io/github/package-json/dependency-version/hiubok/wilson/discord.js)](https://www.npmjs.com/package/discord.js)
 [![Dependency](https://img.shields.io/github/package-json/dependency-version/hiubok/wilson/ccord)](https://www.npmjs.com/package/ccord)
 [![GitHub contributors](https://img.shields.io/github/contributors/hiubok/wilson)]()
 
