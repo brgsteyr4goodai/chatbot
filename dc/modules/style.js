@@ -40,7 +40,7 @@ module.exports = class {
                         name : element[0]
                     };
 
-                    obj.value = object.out[element[1]].slice(0, element[3] - (object.out[element[2]].length + 4)) + "...\n" + object.out[element[2]];
+                    obj.value = object.out[element[1]].slice(0, element[3] - (object.out[element[2]].length + 4)) + `${(object.out[element[1]].length + 4) > element[3] ? "..." : ""}\n` + object.out[element[2]];
 
                     return obj;
                 });
