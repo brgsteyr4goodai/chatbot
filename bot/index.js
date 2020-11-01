@@ -55,16 +55,24 @@ class Bot {
         this.output.addDf(response.queryResult.responseMessages.map(m => m.text.text).join("\n"))
 
         let flowName = Flat.executionFlat(response.queryResult)[0]["Step 1"].InitialState.FlowState.Name;
+        let intent = response.queryResult.match.intent ? response.queryResult.match.intent.displayName : "";
         if (flowName in this) {
             await this[flowName]({
                 page : response.queryResult.currentPage.displayName,
-                intent: response.queryResult.match.intent ? response.queryResult.match.intent.displayName : "",
+                intent,
                 response,
                 output: this.output,
                 query,
                 text
             });
         }
+
+        this.output.options.setDialogflow({
+            intent,
+            flow : flowName,
+            page : response.queryResult.currentPage.displayName
+        });
+        this.generateDefaultStyles();
 
         return this.output;
     }
@@ -91,6 +99,18 @@ class Bot {
         };
     }
 
+    /**
+     * @private
+     */
+    generateDefaultStyles () {
+        if (this.output.object.options.style === undefined) {
+            this.output.options.setStyle({
+                output : [],
+                df : 1024
+            })
+        }
+    }
+
     //--------------------------------------
 
     /**
@@ -102,6 +122,11 @@ class Bot {
                 if (data.intent === "") return;
                 await this.diseaseProcessor.getDisease();
                 this.diseaseProcessor.logSymptomsAndCauses();
+
+                this.output.options.setStyle({
+                    output : [["Diagnose", 0, -1, 1024]],
+                    df : 1024
+                });
                 break;
         }
 
@@ -113,6 +138,18 @@ class Bot {
                 break;
             case "symptom:numberSelector":
                 await this.diseaseProcessor.getInfoByNumber(data.response.queryResult.parameters.fields.number.numberValue)
+
+                let arr = [];
+                for (let i = 1; i < this.output.out.length - 1; i += 3) {
+                    arr.push([this.output.out[i], i+1, i+2, 1024])
+                }
+
+                this.output.options.setStyle({
+                    output : arr,
+                    df : 1024
+                });
+
+
                 break;
         }
     }
@@ -120,7 +157,7 @@ class Bot {
     /**
      * @private
      */
-    async ["Default Start Flow"] (data) {
+    async ["Default Start Flow"] (data, output) {
         switch (data.intent) {
             case "info:start":
                 if (!data.response.queryResult.parameters.fields.any.stringValue) return;
