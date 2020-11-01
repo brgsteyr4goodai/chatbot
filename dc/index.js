@@ -30,7 +30,7 @@ new class extends cc {
     //events
 
     ready () {
-        this.bot.user.setActivity("Just Chatting", {type: "PLAYING"});
+        this.bot.user.setActivity("Users", {type: "LISTENING"});
         console.log("Bot is online");
         console.log("config: ", config);
     }

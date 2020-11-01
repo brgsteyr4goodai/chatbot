@@ -149,7 +149,6 @@ class Bot {
                     df : 1024
                 });
 
-
                 break;
         }
     }
@@ -162,6 +161,17 @@ class Bot {
             case "info:start":
                 if (!data.response.queryResult.parameters.fields.any.stringValue) return;
                 await this.diseaseProcessor.addInfoToOutput(data.response.queryResult.parameters.fields.any.stringValue)
+
+                let arr = [];
+                for (let i = 1; i < this.output.out.length - 1; i += 3) {
+                    arr.push([this.output.out[i], i+1, i+2, 1024])
+                }
+
+                this.output.options.setStyle({
+                    output : arr,
+                    df : 1024
+                });
+
                 break;
         }
     }
