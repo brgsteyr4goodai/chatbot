@@ -51,6 +51,8 @@ module.exports = class {
                 output : [["Error", 0, -1, 1024]],
                 df : 1024
             });
+            this.bot.output.options.setDialogflow({...this.bot.output.object.options.dfObject, intent : ""})
+
             return;
         }
 

@@ -56,6 +56,13 @@ class Bot {
 
         let flowName = Flat.executionFlat(response.queryResult)[0]["Step 1"].InitialState.FlowState.Name;
         let intent = response.queryResult.match.intent ? response.queryResult.match.intent.displayName : "";
+
+        this.output.options.setDialogflow({
+            intent,
+            flow : flowName,
+            page : response.queryResult.currentPage.displayName
+        });
+
         if (flowName in this) {
             await this[flowName]({
                 page : response.queryResult.currentPage.displayName,
@@ -67,11 +74,6 @@ class Bot {
             });
         }
 
-        this.output.options.setDialogflow({
-            intent,
-            flow : flowName,
-            page : response.queryResult.currentPage.displayName
-        });
         this.generateDefaultStyles();
 
         return this.output;
@@ -147,7 +149,7 @@ class Bot {
                 this.output.options.setStyle({
                     output : arr,
                     df : 1024
-                });
+                }, false);
 
                 break;
         }

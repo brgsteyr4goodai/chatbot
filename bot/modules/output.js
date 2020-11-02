@@ -49,13 +49,24 @@ class Output {
      * @type {Object}
      * @property {function(string, any)} setProperty
      * @property {function(object)} setDialogflow
-     * @property {function(object)} setStyle
+     * @property {function(object, boolean)} setStyle
      */
     get options () {
         return {
             setProperty : (prop, value) => this.optionsObject[prop] = value,
             setDialogflow : (dfObject) => this.optionsObject.dfObject = dfObject,
-            setStyle : (styleObject) => this.optionsObject.style = styleObject
+            setStyle : (styleObject, force) => {
+                if (force === undefined) {
+                    force = true;
+                }
+                if (force) {
+                    this.optionsObject.style = styleObject;
+                } else {
+                    if (this.optionsObject.style === undefined) {
+                        this.optionsObject.style = styleObject;
+                    }
+                }
+            }
         }
     }
 
