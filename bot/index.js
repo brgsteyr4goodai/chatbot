@@ -1,9 +1,9 @@
 const DialogFlow = require("@google-cloud/dialogflow-cx");
 const config = require("./config.json");
 
-const DiseaseProcessor = require("./diseaseProcessor.js");
-const Output = require("./output.js");
-const Flat = require("./cx.flattener.js");
+const DiseaseProcessor = require("./modules/diseaseProcessor.js");
+const Output = require("./modules/output.js");
+const Flat = require("./modules/cx.flattener.js");
 
 const cmds = {};
 

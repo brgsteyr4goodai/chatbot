@@ -1,6 +1,6 @@
 
 const fs = require("fs");
-const srcs = fs.readdirSync(`${__dirname}/srcs/`);
+const srcs = fs.readdirSync(`${__dirname}/../srcs/`);
 
 class Wrapper {
     static async get(name, src) {
@@ -9,7 +9,7 @@ class Wrapper {
 }
 
 srcs.forEach(file => {
-    Wrapper[file.slice(0, -3)] = require(`${__dirname}/srcs/${file}`);
+    Wrapper[file.slice(0, -3)] = require(`${__dirname}/../srcs/${file}`);
 });
 
 module.exports = Wrapper;
