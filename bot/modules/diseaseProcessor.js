@@ -47,6 +47,10 @@ module.exports = class {
     async getInfoByNumber (index) {
         if (index < 1 || index > this.causes.length + 1) {
             this.bot.output.addOutput(`Invalid index: ${index}`);
+            this.bot.output.options.setStyle({
+                output : [["Error", 0, -1, 1024]],
+                df : 1024
+            });
             return;
         }
 
