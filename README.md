@@ -18,9 +18,9 @@ It is written in JavaScript and can be run online in Repl, locally with Node.js 
 
 This project was made for the [2020 #4GoodAI hackathon](https://www.ada.wien/hackathon-fur-gute-ki-4goodai-2020/).
 
-If you have any questions, problems or suggestions write us an Email or open a GitHub issue.
+If you have any questions, problems or suggestions write us an [email](#authors) or open a [GitHub issue](https://github.com/hiubok/wilson/issues).
 
-> GIF goes here
+![Demo](https://github.com/hiubok/wilson/blob/main/assets/gif.gif)
 
 ___
 
