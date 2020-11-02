@@ -20,7 +20,7 @@ This project was made for the [2020 #4GoodAI hackathon](https://www.ada.wien/hac
 
 If you have any questions, problems or suggestions write us an Email or open a GitHub issue.
 
-> GIF goes here
+![Demo](https://github.com/hiubok/wilson/blob/main/assets/gif.gif)
 
 ___
 
