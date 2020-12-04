@@ -4,7 +4,9 @@ const icd_creds = require("../credentials/icd.json");
 let icd = new ICD(icd_creds.client_id, icd_creds.client_secret);
 
 module.exports = async name => {
-    let res = await (await (await icd).search(name)).first();
+    let icd_inst = await icd;
+    icd_inst.token = await icd_inst.getToken();
+    let res = await (await icd_inst.search(name)).first();
 
     if (!res) {
         return;
